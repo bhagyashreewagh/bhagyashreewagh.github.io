@@ -317,10 +317,75 @@ img{max-width:100%;display:block}
 .fade{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
 .fade.in{opacity:1;transform:translateY(0)}
 
-/* ── MOBILE ──────────────────────────────────────────────── */
+/* ── HAMBURGER BUTTON ────────────────────────────────────── */
+.nav-burger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:none;border:none;cursor:pointer;padding:.4rem .25rem;
+  width:36px;height:36px;flex-shrink:0
+}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:var(--transition)}
+@media(max-width:767px){.nav-burger{display:flex}}
+
+/* ── MOBILE FULL-SCREEN MENU ─────────────────────────────── */
+.mobile-menu{
+  display:none;position:fixed;inset:0;background:var(--white);z-index:200;
+  flex-direction:column;align-items:center;justify-content:center;gap:0;
+  padding:2rem
+}
+.mobile-menu.open{display:flex}
+.mobile-menu ul{list-style:none;text-align:center;display:flex;flex-direction:column;gap:2rem}
+.mobile-menu a{
+  font-size:1.75rem;font-weight:700;color:var(--text);
+  text-decoration:none;transition:var(--transition)
+}
+.mobile-menu a:hover{color:var(--coral)}
+.mobile-menu-close{
+  position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;
+  font-size:1.25rem;cursor:pointer;color:var(--text);padding:.5rem;
+  border-radius:50%;transition:var(--transition);width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center
+}
+.mobile-menu-close:hover{background:var(--cream)}
+
+/* ── MOBILE — hero ───────────────────────────────────────── */
+@media(max-width:767px){
+  .hero{height:auto;padding:5.5rem 1rem 2.5rem;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;height:auto;max-height:none}
+  .hero-right{display:none}
+  .hero-left{padding:2rem 1.5rem}
+  .hero-headline{font-size:2.2rem}
+  .hero-ctas{gap:.75rem}
+  .btn-fill,.btn-link{padding:.75rem 1.5rem;font-size:.9rem}
+}
+
+/* ── MOBILE — testimonials (fix pairing order) ───────────── */
+@media(max-width:768px){
+  .testimonial-grid{display:flex;flex-direction:column}
+  .testimonial-card-top{border-radius:24px 24px 0 0}
+  .testimonial-card-bottom{border-radius:0 0 24px 24px;margin-bottom:1.5rem}
+  .testimonial-grid > *:nth-child(2){order:3}
+  .testimonial-grid > *:nth-child(3){order:2}
+}
+
+/* ── MOBILE — general scaling ────────────────────────────── */
+@media(max-width:600px){
+  .wrap{padding:0 1.25rem}
+  .contact-inner{flex-direction:column;gap:1.5rem}
+  .contact-right{width:100%}
+  .contact-me-btn{width:100%;justify-content:center;text-align:center}
+  .tl-tabs{gap:.4rem}
+  .tl-tab{padding:.6rem 1.1rem;font-size:.85rem}
+}
+
+/* ── MOBILE — very small ─────────────────────────────────── */
 @media(max-width:500px){
   .sec,.sec-alt,.sec-peach,.sec-sage,.sec-lavender,.sec-dark,.sec-gradient,.quote-sec,.contact-sec,.marquee-section{margin:.4rem .4rem;padding:3rem 1.25rem}
   .approach-grid{grid-template-columns:1fr}
+  .hero-headline{font-size:1.9rem}
+  .heading-lg{font-size:2rem!important}
+  .cert-flip-card{height:200px}
+  .marquee-item{min-width:140px;height:72px;padding:.75rem 1.25rem}
+  .marquee-item img{width:110px;height:38px}
 }
   /* ── Certifications ── */
   .cert-section{padding:4rem 1rem;background:var(--cream)}
@@ -352,8 +417,24 @@ img{max-width:100%;display:block}
       <li><a href="#publications">Research</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile full-screen menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-close" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+    <li><a href="#skills" onclick="closeMobileMenu()">How I Work</a></li>
+    <li><a href="#experience" onclick="closeMobileMenu()">Experience</a></li>
+    <li><a href="#projects" onclick="closeMobileMenu()">Projects</a></li>
+    <li><a href="#publications" onclick="closeMobileMenu()">Research</a></li>
+    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+  </ul>
+</div>
 
 <!-- ════════ HERO ════════════════════════════════════════════ -->
 <div class="hero">
@@ -835,6 +916,13 @@ img{max-width:100%;display:block}
 <a href="#" class="back-to-top" title="Back to top">↑</a>
 
 <script>
+/* ── Mobile nav ─────────────────────────────────────────── */
+const burger = document.getElementById('nav-burger');
+const mobileMenu = document.getElementById('mobile-menu');
+document.getElementById('mobile-close').addEventListener('click', closeMobileMenu);
+burger.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
+function closeMobileMenu(){ mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+
 /* ── Scrolled nav ───────────────────────────────────────── */
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
