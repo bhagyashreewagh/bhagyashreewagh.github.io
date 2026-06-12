@@ -32,6 +32,16 @@
 [data-theme="dark"] .navbar-b{background:rgba(20,20,20,.91)}
 [data-theme="dark"] .mobile-menu{background:#141414}
 [data-theme="dark"] .hero-photo-ph{background:linear-gradient(160deg,#2a2020 0%,#1e1a2e 100%)}
+/* Marquee logos: give each logo tile a light background so dark logos are visible */
+[data-theme="dark"] .marquee-item{background:#f0f0f0;border-color:transparent}
+/* Personality tags: dark text — they have light pastel backgrounds that don't change */
+[data-theme="dark"] .p-tag{color:rgb(30,28,26)!important;border-color:rgba(0,0,0,.3)!important}
+/* Certification fronts: light background so logos show clearly */
+[data-theme="dark"] .cert-front{background:#efefef}
+[data-theme="dark"] .cert-name{color:rgb(30,28,26)}
+/* GitHub social button: near-black color is invisible on dark bg */
+[data-theme="dark"] .contact-social-btn.gh{border-color:rgba(255,255,255,.55);color:rgba(255,255,255,.8)}
+[data-theme="dark"] .contact-social-btn.gh:hover{border-color:#fff;color:#fff}
 .theme-toggle{background:none;border:1.5px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:var(--transition);flex-shrink:0}
 .theme-toggle:hover{border-color:var(--coral)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
