@@ -43,17 +43,26 @@
 [data-theme="dark"] .sec-dark .body-md,
 [data-theme="dark"] .sec-dark p  { color: var(--text-mid) }
 
-/* ── Cert flip cards ────────────────────────────── */
-[data-theme="dark"] .cert-front { background: #1e1e1e }
+/* ── Cert flip cards: light front so logos are readable ── */
+[data-theme="dark"] .cert-front { background: #f0f0f0 }
+[data-theme="dark"] .cert-front .cert-name { color: rgb(30,28,26) }
 [data-theme="dark"] .cert-back  { background: #2a2a2a }
 
-/* ── Logo / image areas with hardcoded white bg ─── */
-[data-theme="dark"] .role-card-logo  { background: #1e1e1e }
-[data-theme="dark"] .uw-bg           { background: #222 !important }
-[data-theme="dark"] .mumbai-bg       { background: #222 !important }
-[data-theme="dark"] .edu-logo-home   { background: #1e1e1e !important }
-[data-theme="dark"] .marquee-item    { background: #1e1e1e }
-[data-theme="dark"] .marquee-section { background: #141414 }
+/* ── Logo / image areas: keep light so dark logos show ── */
+[data-theme="dark"] .role-card-logo  { background: #f0f0f0 }
+[data-theme="dark"] .uw-bg           { background: #f5f5f5 !important }
+[data-theme="dark"] .mumbai-bg       { background: #f5f5f5 !important }
+[data-theme="dark"] .edu-logo-home   { background: #f5f5f5 !important }
+[data-theme="dark"] .marquee-item    { background: #f0f0f0; border-color: transparent }
+[data-theme="dark"] .marquee-section { background: #1e1e1e }
+
+/* ── Personality tags: dark text on light pastel backgrounds ── */
+[data-theme="dark"] .p-tag { color: rgb(30,28,26) !important; border-color: rgba(0,0,0,.3) !important }
+[data-theme="dark"] .tag   { color: rgb(30,28,26) !important; border-color: rgba(0,0,0,.2) !important }
+
+/* ── GitHub social button: near-black is invisible on dark bg ── */
+[data-theme="dark"] .contact-social-btn.gh { border-color: rgba(255,255,255,.55); color: rgba(255,255,255,.8) }
+[data-theme="dark"] .contact-social-btn.gh:hover { border-color: #fff; color: #fff }
 
 /* ── Publication entries ────────────────────────── */
 [data-theme="dark"] .pub-card  { background: #1e1e1e }
