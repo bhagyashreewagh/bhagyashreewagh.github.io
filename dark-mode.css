@@ -64,6 +64,18 @@
 [data-theme="dark"] .contact-social-btn.gh { border-color: rgba(255,255,255,.55); color: rgba(255,255,255,.8) }
 [data-theme="dark"] .contact-social-btn.gh:hover { border-color: #fff; color: #fff }
 
+/* ── "See my work" btn: peach bg stays light, text must be dark ── */
+[data-theme="dark"] .btn-fill { color: rgb(30,28,26) }
+[data-theme="dark"] .btn-fill:hover { color: rgb(30,28,26) }
+
+/* ── How I Work cards: pastel bgs don't change, force dark text ── */
+[data-theme="dark"] .approach-card h4 { color: rgb(30,28,26) }
+[data-theme="dark"] .approach-card p   { color: rgba(30,28,26,.72) }
+[data-theme="dark"] .approach-card-toggle { color: rgba(30,28,26,.6); background: rgba(0,0,0,.1) }
+
+/* ── Testimonial quote mark: brighter coral so it's visible ── */
+[data-theme="dark"] .testimonial-quote-mark { color: var(--coral); opacity: .65 }
+
 /* ── Publication entries ────────────────────────── */
 [data-theme="dark"] .pub-card  { background: #1e1e1e }
 [data-theme="dark"] .pub-entry { background: #1e1e1e }
