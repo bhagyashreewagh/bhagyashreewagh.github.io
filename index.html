@@ -270,18 +270,21 @@ img{max-width:100%;display:block}
 .quote-author{color:rgba(255,255,255,.4);font-size:.9rem}
 
 /* ── CONTACT DARK ────────────────────────────────────────── */
-.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;gap:0 2rem;align-items:stretch}
-.testimonial-card-top{background:var(--white);border-radius:24px 24px 0 0;padding:2.5rem 2.5rem 1.5rem;border:1px solid var(--border);border-bottom:none}
-.testimonial-card-bottom{background:var(--white);border-radius:0 0 24px 24px;padding:1.25rem 2.5rem 2rem;border:1px solid var(--border);border-top:1px solid var(--border);display:flex;align-items:center;gap:1rem}
+.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch}
+@media(max-width:768px){.testimonial-grid{grid-template-columns:1fr}}
+.testimonial-card{
+  background:var(--white);border-radius:24px;padding:2.5rem;
+  border:1px solid var(--border);display:flex;flex-direction:column
+}
 .testimonial-quote-mark{font-family:Georgia,serif;font-size:5rem;line-height:1;color:var(--coral);opacity:.25;pointer-events:none;margin-bottom:.5rem}
-.testimonial-text{font-size:1.05rem;line-height:1.85;color:var(--text-mid)}
+.testimonial-text{font-size:1.05rem;line-height:1.85;color:var(--text-mid);flex:1}
+.testimonial-author{display:flex;align-items:center;gap:1rem;margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border)}
 .testimonial-avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;letter-spacing:.03em}
 .testimonial-avatar-cg{background:linear-gradient(135deg,#667eea,#764ba2)}
 .testimonial-avatar-dm{background:linear-gradient(135deg,#f093fb,#f5576c)}
 .testimonial-name{font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:.2rem}
 .testimonial-title{font-size:.8rem;color:var(--text-light);line-height:1.4;margin-bottom:.3rem}
 .testimonial-rel{font-size:.78rem;color:var(--coral);font-weight:600}
-@media(max-width:768px){.testimonial-grid{grid-template-columns:1fr}}
 .contact-sec{background:var(--white);padding:5rem 2.5rem;border-radius:30px;margin:.75rem 1rem}
 .contact-inner{display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
 .contact-left{flex:1;min-width:260px}
@@ -359,14 +362,6 @@ img{max-width:100%;display:block}
   .btn-fill,.btn-link{padding:.75rem 1.5rem;font-size:.9rem}
 }
 
-/* ── MOBILE — testimonials (fix pairing order) ───────────── */
-@media(max-width:768px){
-  .testimonial-grid{display:flex;flex-direction:column}
-  .testimonial-card-top{border-radius:24px 24px 0 0}
-  .testimonial-card-bottom{border-radius:0 0 24px 24px;margin-bottom:1.5rem}
-  .testimonial-grid > *:nth-child(2){order:3}
-  .testimonial-grid > *:nth-child(3){order:2}
-}
 
 /* ── MOBILE — general scaling ────────────────────────────── */
 @media(max-width:600px){
@@ -852,31 +847,29 @@ img{max-width:100%;display:block}
     <h2 class="heading-lg" style="margin-bottom:3rem">What people say</h2>
     <div class="testimonial-grid">
 
-      <div class="testimonial-card-top">
+      <div class="testimonial-card">
         <div class="testimonial-quote-mark">"</div>
         <p class="testimonial-text">What impressed me most about Shree was her ability to work independently while knowing exactly when to reach out for guidance. She quickly ramped up on our existing codebase and consistently delivered on all her commitments. She tackles technical challenges head-on and resolves issues independently. That's a skill that's rarer than it should be. Any organization would be fortunate to have Shree as a software engineer.</p>
-      </div>
-
-      <div class="testimonial-card-top">
-        <div class="testimonial-quote-mark">"</div>
-        <p class="testimonial-text">Shree is highly skilled, smart, proactive, and diligent in all she undertakes. She was able to provide insights from her work as a reader/grader to help guide course content and ensure students are getting the best from the learning experience. The quality of her work was recognized by other instructors which helped her continue with course assistant work across multiple classes. There is no question that Shree will have an amazing career.</p>
-      </div>
-
-      <div class="testimonial-card-bottom">
-        <div class="testimonial-avatar testimonial-avatar-cg">CG</div>
-        <div class="testimonial-info">
-          <p class="testimonial-name">Carlos Garcia Jurado Suarez</p>
-          <p class="testimonial-title">Accelerating Scientific Discovery through Software &amp; ML/AI | UW, Ex-Meta, Ex-MSFT</p>
-          <p class="testimonial-rel">Mentor at UW eScience Institute &middot; February 2026</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar testimonial-avatar-cg">CG</div>
+          <div class="testimonial-info">
+            <p class="testimonial-name">Carlos Garcia Jurado Suarez</p>
+            <p class="testimonial-title">Accelerating Scientific Discovery through Software &amp; ML/AI | UW, Ex-Meta, Ex-MSFT</p>
+            <p class="testimonial-rel">Mentor at UW eScience Institute &middot; February 2026</p>
+          </div>
         </div>
       </div>
 
-      <div class="testimonial-card-bottom">
-        <div class="testimonial-avatar testimonial-avatar-dm">DM</div>
-        <div class="testimonial-info">
-          <p class="testimonial-name">Dennis Meinhardt</p>
-          <p class="testimonial-title">Product, Technology, and Business Leader | Volunteer | Advisor</p>
-          <p class="testimonial-rel">Course Instructor at UW &middot; December 2024</p>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">Shree is highly skilled, smart, proactive, and diligent in all she undertakes. She was able to provide insights from her work as a reader/grader to help guide course content and ensure students are getting the best from the learning experience. The quality of her work was recognized by other instructors which helped her continue with course assistant work across multiple classes. There is no question that Shree will have an amazing career.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar testimonial-avatar-dm">DM</div>
+          <div class="testimonial-info">
+            <p class="testimonial-name">Dennis Meinhardt</p>
+            <p class="testimonial-title">Product, Technology, and Business Leader | Volunteer | Advisor</p>
+            <p class="testimonial-rel">Course Instructor at UW &middot; December 2024</p>
+          </div>
         </div>
       </div>
 
