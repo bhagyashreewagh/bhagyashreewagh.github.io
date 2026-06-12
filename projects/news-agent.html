@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI News Agent | Bhagyashree Wagh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --font:'Albert Sans',sans-serif;
+      --cream:#F6F6F6;--white:rgb(255,255,255);--coral:rgb(254,122,120);
+      --sage:rgb(179,222,193);--lavender:rgb(202,187,233);
+      --text:rgb(48,46,44);--text-mid:rgb(80,78,76);--text-light:rgb(140,138,136);
+      --border:rgba(0,0,0,.12);--transition:all .2s ease;
+    }
+    body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+    a{color:var(--text);text-decoration:none;transition:var(--transition)}
+    .wrap{max-width:860px;margin:0 auto;padding:0 2.5rem}
+    nav{padding:1.25rem 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--white);z-index:100}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-name{font-weight:800;font-size:1rem}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;color:var(--text-mid);font-weight:500}
+    .back-link:hover{color:var(--text)}
+    .proj-page{padding:4rem 0 6rem}
+    .proj-heading{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:.75rem}
+    @media(min-width:768px){.proj-heading{font-size:3.75rem}}
+    .proj-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+    .ptag{display:inline-block;padding:.3rem .85rem;border-radius:50px;font-size:.82rem;font-weight:600;background:var(--cream);color:var(--text);border:1px solid var(--border)}
+    .proj-links{display:flex;gap:.75rem;margin-bottom:3rem}
+    .proj-link-gh{font-size:.88rem;font-weight:600;color:var(--text-light);border:1.5px solid var(--border);padding:.35rem 1rem;border-radius:50px;text-decoration:none;transition:var(--transition)}
+    .proj-link-gh:hover{border-color:var(--text);color:var(--text)}
+    .proj-body p{font-size:1.15rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.75rem}
+    .proj-body p strong{color:var(--text);font-weight:700}
+    .section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin:3rem 0 1.25rem;display:block}
+    .callout{background:var(--cream);border-left:3px solid var(--coral);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.75rem}
+    .callout p{font-size:1.05rem;margin-bottom:0}
+    .pipeline-steps{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.75rem}
+    .step{display:flex;align-items:flex-start;gap:1rem}
+    .step-num{min-width:2rem;height:2rem;background:var(--lavender);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:var(--text);flex-shrink:0;margin-top:.15rem}
+    .step-text{font-size:1rem;color:var(--text-mid);line-height:1.7}
+    .step-text strong{color:var(--text)}
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-light)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-name">Bhagyashree Wagh</a>
+    <a href="../index.html#projects" class="back-link">← Back to projects</a>
+  </div>
+</nav>
+
+<div class="proj-page">
+  <div class="wrap">
+    <h1 class="proj-heading">AI News Agent</h1>
+    <div class="proj-meta">
+      <span class="ptag">Python</span><span class="ptag">Claude AI</span><span class="ptag">VADER</span><span class="ptag">NLTK</span><span class="ptag">Streamlit</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://multimodal-ai-agent-news.onrender.com/" target="_blank" class="proj-link-live">↗ Live</a>
+      <a href="https://github.com/bhagyashreewagh/Multimodal-AI-Agent-News" target="_blank" class="proj-link-gh">GitHub</a>
+    </div>
+
+    <div class="proj-body">
+
+      <span class="section-label">The problem</span>
+
+      <p>Keeping up with a topic like AI or data science means reading a lot, and most of it is noise. Articles repeat each other, headlines are misleading, and there's no quick way to tell whether something is worth reading before you open it.</p>
+
+      <div class="callout">
+        <p>Type a topic. The agent fetches live headlines, summarizes each one with Claude, runs sentiment analysis, and returns a curated feed with scores, so you know what's worth reading before you click.</p>
+      </div>
+
+      <span class="section-label">Pipeline</span>
+
+      <div class="pipeline-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Fetch</strong>: Live headlines are pulled from Google News RSS for the user's topic. No API key required.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Summarize</strong>: Each article description is passed to <strong>Claude Haiku</strong> with a focused prompt to return a two-sentence summary. Fast and cheap per call.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Sentiment</strong>: <strong>VADER</strong> scores each article as Positive, Negative, or Neutral with a compound score. VADER is rule-based and runs locally with no latency.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text"><strong>Display</strong>: Results render as a clean feed with source, summary, sentiment badge, and a direct link to the full article.</div>
+        </div>
+      </div>
+
+      <span class="section-label">Why VADER alongside Claude</span>
+
+      <p>Claude is used for summarization because it handles nuanced, domain-specific language well and produces consistently readable output. VADER handles sentiment because it's a rule-based lexicon model that runs instantly and locally, with no additional API call, no latency, no cost. The two models do genuinely different jobs: Claude understands the content, VADER classifies the tone. Using Claude for sentiment would be slower and more expensive with no meaningful accuracy gain for this use case.</p>
+
+      <span class="section-label">Design choice: RSS over a news API</span>
+
+      <p>Early versions used the NewsAPI, which requires registration and has rate limits on the free tier. Switching to Google News RSS removed the dependency entirely, with no key, no rate limit, always fresh. The trade-off is less structured metadata per article, but for this use case (headline, description, source, link) RSS provides everything needed.</p>
+
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Bhagyashree Wagh</footer>
+</body>
+</html>

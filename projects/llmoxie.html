@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLMoxie | Bhagyashree Wagh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --font:'Albert Sans',sans-serif;
+      --cream:#F6F6F6;
+      --white:rgb(255,255,255);
+      --coral:rgb(254,122,120);
+      --peach:rgb(255,173,173);
+      --sage:rgb(179,222,193);
+      --lavender:rgb(202,187,233);
+      --sky:#87CEEB;
+      --text:rgb(48,46,44);
+      --text-mid:rgb(80,78,76);
+      --text-light:rgb(140,138,136);
+      --border:rgba(0,0,0,.12);
+      --transition:all .2s ease;
+    }
+    body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+    a{color:var(--text);text-decoration:none;transition:var(--transition)}
+    .wrap{max-width:860px;margin:0 auto;padding:0 2.5rem}
+    nav{padding:1.25rem 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--white);z-index:100}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-name{font-weight:800;font-size:1rem}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;color:var(--text-mid);font-weight:500}
+    .back-link:hover{color:var(--text)}
+    .proj-page{padding:4rem 0 6rem}
+    .proj-heading{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:.75rem}
+    @media(min-width:768px){.proj-heading{font-size:3.75rem}}
+    .proj-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+    .ptag{display:inline-block;padding:.3rem .85rem;border-radius:50px;font-size:.82rem;font-weight:600;background:var(--cream);color:var(--text);border:1px solid var(--border)}
+    .proj-links{display:flex;gap:.75rem;margin-bottom:3rem}
+    .proj-link-live{font-size:.88rem;font-weight:700;color:var(--coral);border:1.5px solid var(--coral);padding:.35rem 1rem;border-radius:50px;text-decoration:none;transition:var(--transition)}
+    .proj-link-live:hover{background:var(--coral);color:#fff}
+    .proj-link-gh{font-size:.88rem;font-weight:600;color:var(--text-light);border:1.5px solid var(--border);padding:.35rem 1rem;border-radius:50px;text-decoration:none;transition:var(--transition)}
+    .proj-link-gh:hover{border-color:var(--text);color:var(--text)}
+    .proj-body p{font-size:1.15rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.75rem}
+    .proj-body p strong{color:var(--text);font-weight:700}
+    .section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin:3rem 0 1.25rem;display:block}
+    .callout{background:var(--cream);border-left:3px solid var(--coral);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.75rem}
+    .callout p{font-size:1.05rem;margin-bottom:0}
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-light)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-name">Bhagyashree Wagh</a>
+    <a href="../index.html#projects" class="back-link">← Back to projects</a>
+  </div>
+</nav>
+
+<div class="proj-page">
+  <div class="wrap">
+    <h1 class="proj-heading">LLMoxie</h1>
+    <div class="proj-meta">
+      <span class="ptag">Kafka</span><span class="ptag">Redis</span><span class="ptag">Azure Data Lake</span><span class="ptag">Azure Synapse</span><span class="ptag">Kubernetes</span><span class="ptag">Streamlit</span><span class="ptag">Python</span><span class="ptag">Pulumi</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://llmaven-prod-streamlit.azurewebsites.net" target="_blank" class="proj-link-live">↗ Live dashboard</a>
+      <a href="https://github.com/bhagyashreewagh/llmaven-azure-demo" target="_blank" class="proj-link-gh">GitHub</a>
+    </div>
+
+    <div class="proj-body">
+
+      <span class="section-label">The problem</span>
+
+      <p>This was built at the UW eScience Institute in the context of <strong>NAIRR</strong>, the National AI Research Resource, a federally funded initiative giving researchers across universities access to large-scale AI compute. For federal accountability and cost auditing, we needed full observability into how models were being used.</p>
+
+      <p>Our team was running <strong>LiteLLM</strong> as an internal LLM gateway, routing requests across GPT-4, Claude, and other models on behalf of different users and teams. The problem was zero visibility. We had no idea which models were being hit the most, which users were driving cost, whether latency was degrading, or if there were anomalous usage spikes. We were manually exporting logs and graphing them in Python when we wanted to check anything.</p>
+
+      <div class="callout">
+        <p>The goal: build a real-time observability pipeline where every usage event is captured the moment it happens, processed and stored at two different time horizons, and surfaced on a live dashboard.</p>
+      </div>
+
+      <span class="section-label">Architecture decision: push vs. poll</span>
+
+      <p>The first design question was whether to poll LiteLLM for data or have data pushed to us the moment it's available. Polling always means you're at least one interval behind. We went <strong>push-based</strong> using LiteLLM's built-in callback system. That fires on every API call completion and returns a structured payload: model name, user ID, session ID, input and output token counts, latency, cost estimate, and full request metadata.</p>
+
+      <span class="section-label">Streaming layer: Kafka</span>
+
+      <p>From the LiteLLM callback, events are published directly into <strong>Kafka</strong>, which we self-hosted on Kubernetes. The topic is <code>llm.usage.raw</code>, partitioned by user ID so events from the same user always land on the same partition and stay in order.</p>
+
+      <p>The reason for introducing Kafka rather than writing directly from the callback into a database is <strong>durability and decoupling</strong>. The LiteLLM gateway never blocks waiting for anything. It fires the callback asynchronously and moves on. That's the key throughput advantage, especially under traffic spikes when you most need observability to be working.</p>
+
+      <span class="section-label">Processing layer: Kafka consumer</span>
+
+      <p>A Kafka consumer group (a containerized Python script) reads from <code>llm.usage.raw</code> in real time. Consumer instances don't scale automatically on their own, so we used <strong>KEDA</strong> (Kubernetes Event Driven Autoscaler). It watches consumer group lag and automatically spins up more instances when lag grows, then scales back down when it clears.</p>
+
+      <p>Each consumer does three things in sequence: normalizes field names across model providers, computes derived fields like cost per token and session duration, and fans the processed event out to two destinations: <strong>Redis</strong> for the hot real-time layer and <strong>Azure Data Lake Storage</strong> for long-term archival. Both writes happen before committing the Kafka offset, so we never acknowledge an event as processed until it's safely in both stores.</p>
+
+      <span class="section-label">Hot layer: Redis</span>
+
+      <p>Redis handles the real-time dashboard and alerting layer because we need very fast lookups by user, model, and time window. We use <strong>Redis sorted sets</strong> to store running cost and token totals by user ID and model name, making it trivial to answer questions like "how much did this user spend in the last hour?" without scanning a full table. <strong>Redis hashes</strong> store the latest state of each active session for live dashboard display.</p>
+
+      <p>A lightweight alerting service checks hourly cost totals every 60 seconds. If a user crosses the hourly cost threshold, it sends an alert to Slack and email via webhook. Redis fits better than a relational database here because the data structures map directly to the queries the dashboard and alerting service need.</p>
+
+      <span class="section-label">Cold layer: data lake and historical analysis</span>
+
+      <p>Every raw event also lands in <strong>Azure Data Lake Storage</strong> as the archival record, the single source of truth for the full history of gateway usage. Events are written as partitioned Parquet files organized by date and model, which makes Synapse queries efficient without needing to scan the entire dataset. <strong>Azure Synapse Analytics</strong> queries the lake directly via SQL without moving data into a separate store.</p>
+
+      <span class="section-label">Dashboard</span>
+
+      <p>The <strong>Streamlit dashboard</strong> is deployed on <strong>Azure Container Apps</strong> and pulls from two sources: Redis for live metrics refreshed every few seconds, and Synapse on demand for historical trend queries. It shows cost per model, cost per user, request volume over time, average latency by model, session length distribution, error rates, and token efficiency ratios across 13,000+ research sessions.</p>
+
+      <p>Azure Container Apps sits behind Azure's built-in load balancer automatically once you configure the ingress. The ingress is set to external with traffic routed to Streamlit's port, and the platform handles distribution from there. The full infrastructure including the Container Apps environment, ingress config, and scaling rules is defined in <code>pulumi/__main__.py</code> in the repo and provisioned with a single <code>pulumi up</code>.</p>
+
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Bhagyashree Wagh</footer>
+</body>
+</html>

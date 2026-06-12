@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyron Medical | Bhagyashree Wagh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --font:'Albert Sans',sans-serif;
+      --cream:#F6F6F6;
+      --white:rgb(255,255,255);
+      --coral:rgb(254,122,120);
+      --peach:rgb(255,173,173);
+      --sage:rgb(179,222,193);
+      --lavender:rgb(202,187,233);
+      --text:rgb(48,46,44);
+      --text-mid:rgb(80,78,76);
+      --text-light:rgb(140,138,136);
+      --border:rgba(0,0,0,.12);
+      --transition:all .2s ease;
+    }
+    body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+    a{color:var(--text);text-decoration:none;transition:var(--transition)}
+    .wrap{max-width:860px;margin:0 auto;padding:0 2.5rem}
+    nav{padding:1.25rem 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--white);z-index:100}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-name{font-weight:800;font-size:1rem}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;color:var(--text-mid);font-weight:500}
+    .back-link:hover{color:var(--text)}
+    .proj-page{padding:4rem 0 6rem}
+    .proj-heading{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:.75rem}
+    @media(min-width:768px){.proj-heading{font-size:3.75rem}}
+    .proj-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+    .ptag{display:inline-block;padding:.3rem .85rem;border-radius:50px;font-size:.82rem;font-weight:600;background:var(--cream);color:var(--text);border:1px solid var(--border)}
+    .proj-links{display:flex;gap:.75rem;margin-bottom:3rem}
+    .proj-link-gh{font-size:.88rem;font-weight:600;color:var(--text-light);border:1.5px solid var(--border);padding:.35rem 1rem;border-radius:50px;text-decoration:none;transition:var(--transition)}
+    .proj-link-gh:hover{border-color:var(--text);color:var(--text)}
+    .proj-body p{font-size:1.15rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.75rem}
+    .proj-body p strong{color:var(--text);font-weight:700}
+    .section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin:3rem 0 1.25rem;display:block}
+    .callout{background:var(--cream);border-left:3px solid var(--coral);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.75rem}
+    .callout p{font-size:1.05rem;margin-bottom:0}
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-light)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-name">Bhagyashree Wagh</a>
+    <a href="../index.html#projects" class="back-link">← Back to projects</a>
+  </div>
+</nav>
+
+<div class="proj-page">
+  <div class="wrap">
+    <h1 class="proj-heading">Kyron Medical</h1>
+    <div class="proj-meta">
+      <span class="ptag">TypeScript</span><span class="ptag">React</span><span class="ptag">Node.js</span><span class="ptag">Claude AI</span><span class="ptag">Vapi</span><span class="ptag">Twilio</span><span class="ptag">AWS EC2</span><span class="ptag">Nginx</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://kyron-medical-qhex.onrender.com/" target="_blank" class="proj-link-live">↗ Live</a>
+      <a href="https://github.com/bhagyashreewagh/kyron-medical" target="_blank" class="proj-link-gh">GitHub</a>
+    </div>
+
+    <div class="proj-body">
+
+      <span class="section-label">What it is</span>
+
+      <p>Kyron Medical is an AI front desk for a medical practice. Patients chat with <strong>Kyra</strong>, an AI assistant that collects their info, figures out which specialist they need, shows real appointment slots, and books one. After booking, it sends a confirmation email, creates a calendar event, and optionally texts a reminder. If the patient wants to switch to a phone call mid-conversation, Kyra picks up the phone already knowing everything from the chat.</p>
+
+      <p>The stack is React and Node.js, both in TypeScript. Claude Sonnet powers the AI. Vapi handles voice calls. Twilio handles SMS. Nodemailer sends the emails. It was originally deployed on AWS EC2 with Nginx, PM2, and Let's Encrypt. I terminated that instance to avoid ongoing costs and moved it to <strong>Render</strong>, where it's live now. The AWS deploy script is still in the repo if you want to self-host it.</p>
+
+      <span class="section-label">The conversation workflow</span>
+
+      <p>The entire booking workflow is encoded in Claude's system prompt as an 11-step sequence: greet and ask for the patient's full name, then date of birth, then phone, then email, then reason for visit. Based on the reason, Kyra routes to the right specialist. Each doctor has a keyword list in the data file; back pain goes to Orthopedics, chest pain goes to Cardiology, and so on. Then Kyra presents five available slots, confirms everything, asks about SMS consent, and closes with specialty-specific prep tips.</p>
+
+      <p>The system prompt also has all five doctors, their office hours, and the next 30 days of available slots injected at request time. Those slots are generated deterministically using a seed-based hash so availability is consistent across requests without needing a real database.</p>
+
+      <span class="section-label">Streaming with Server-Sent Events</span>
+
+      <p>When a patient sends a message, the backend opens a persistent HTTP connection and streams Claude's response back in chunks as they arrive. The frontend appends each chunk to the message bubble as it comes in, which is why the text appears to type itself. This is <strong>Server-Sent Events</strong>: one-directional, server to browser, over a long-lived connection. The patient sends one request, the server keeps the connection open and pushes tokens through it until the response is done.</p>
+
+      <span class="section-label">The booking signal mechanism</span>
+
+      <p>The most interesting part of this system is how the booking actually gets triggered. Claude is a text model. It has no way to call a function or fire a webhook directly. But the system prompt instructs it that when all booking details are confirmed, it must append a structured signal to the end of its response:</p>
+
+      <div class="callout">
+        <p><code>APPOINTMENT_CONFIRMED:{"patientFirstName":"Jane","doctorId":"dr-chen","date":"2026-06-20","time":"2:00 PM","slotId":"dr-chen-2026-06-20-T3","smsOptIn":true,...}</code></p>
+      </div>
+
+      <p>The backend watches the stream token by token. The moment it sees <code>APPOINTMENT_CONFIRMED:</code>, it stops forwarding any further chunks to the browser. The patient never sees the raw JSON. The backend collects the full signal, parses the payload, checks that the slot hasn't already been booked by someone else, then fires everything in parallel: marks the slot taken, saves the patient record, sends the confirmation email, creates the Google Calendar event, and sends the SMS if the patient opted in. The clean response without the signal is what gets sent to the frontend.</p>
+
+      <p>The LLM becomes an event emitter. It decides when to fire the event and what data to put in it. The backend just listens to the stream and reacts.</p>
+
+      <span class="section-label">Returning patient detection</span>
+
+      <p>Patient records are saved to a JSON file on disk after every booking. When a new chat session starts, the backend extracts any phone number or email from the conversation and looks it up in that file. If a match is found, the system prompt gets a block injected with the patient's full name, date of birth, phone, email, and last visit details, plus explicit instructions for Claude not to re-ask for any field already on file. Kyra greets the returning patient by name and skips straight to asking why they're coming in.</p>
+
+      <p>There's also a mid-conversation save: if a patient provides their phone and email but the session ends before booking, the system saves a stub record. So even an incomplete conversation makes the next visit smoother.</p>
+
+      <span class="section-label">Voice handoff</span>
+
+      <p>When a patient clicks the call button, the backend pulls the last 10 messages from the session, strips the booking signal if present, summarizes the context, and sends it to Vapi as the voice assistant's system prompt. Vapi calls the patient's phone and Kyra picks up already knowing who they are and what they were discussing. The patient doesn't repeat themselves.</p>
+
+      <p>For inbound calls: Vapi sends a webhook to the backend whenever a patient calls in. The backend looks up the caller's phone in the call history records and the patient database. If there's a prior conversation on file, even from before a server restart, that context gets injected into the assistant config that Vapi receives back. The last five calls per patient are kept in memory; the patient database persists across restarts.</p>
+
+      <span class="section-label">Integrations</span>
+
+      <p><strong>Email:</strong> Nodemailer sends a styled HTML confirmation with the appointment details, doctor info, location, what to bring, and a 24-hour cancellation notice. Supports Gmail app passwords or any generic SMTP provider.</p>
+
+      <p><strong>SMS:</strong> Twilio sends a reminder only if the patient explicitly said yes during the booking flow. The opt-in is captured in the booking signal JSON so the backend knows exactly what was consented to.</p>
+
+      <p><strong>Google Calendar:</strong> A service account creates a calendar event on behalf of the practice and sends an invite to the patient's email. The appointment card in the chat also generates a one-click "Add to Google Calendar" link on the frontend without any backend call.</p>
+
+      <span class="section-label">Infrastructure</span>
+
+      <p>It originally ran on AWS EC2 with Nginx handling incoming traffic, Let's Encrypt for HTTPS, and PM2 keeping the server process alive. I wrote a deploy script that sets the whole thing up from a blank Ubuntu server in one command. The instance is terminated now to avoid costs, and it's on Render instead. The full AWS setup is still in the repo if you want to self-host it.</p>
+
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Bhagyashree Wagh</footer>
+</body>
+</html>

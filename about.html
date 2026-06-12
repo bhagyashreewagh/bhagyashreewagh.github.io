@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Bhagyashree Wagh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --font:'Albert Sans',sans-serif;
+      --cream:#F6F6F6;
+      --white:rgb(255,255,255);
+      --coral:rgb(254,122,120);
+      --peach:rgb(255,173,173);
+      --sage:rgb(179,222,193);
+      --lavender:rgb(202,187,233);
+      --text:rgb(48,46,44);
+      --text-mid:rgb(80,78,76);
+      --text-light:rgb(140,138,136);
+      --border:rgba(0,0,0,.12);
+      --transition:all .2s ease;
+    }
+    body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+    a{color:var(--text);text-decoration:none;transition:var(--transition)}
+    .wrap{max-width:860px;margin:0 auto;padding:0 2.5rem}
+
+    nav{padding:1.25rem 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--white);z-index:100}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-name{font-weight:800;font-size:1rem;color:var(--text)}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;color:var(--text-mid);font-weight:500;transition:var(--transition)}
+    .back-link:hover{color:var(--text)}
+
+    .about-page{padding:4rem 0 6rem}
+    .about-heading{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:1.5rem}
+    @media(min-width:768px){.about-heading{font-size:3.75rem}}
+    .about-hero{display:flex;gap:3rem;align-items:center;margin-bottom:2.5rem}
+    .about-hero-text{flex:1}
+    .about-photo{width:360px;flex-shrink:0;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08);border:28px solid #d4d4d4}
+    .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    @media(max-width:640px){.about-hero{flex-direction:column-reverse}.about-photo{width:100%;max-width:320px;margin:0 auto}}
+
+    .tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.75rem}
+    .tag{display:inline-block;padding:.4rem 1rem;border-radius:50px;font-size:.85rem;font-weight:600;border:1.5px solid var(--border);color:var(--text);background:var(--white)}
+    .tag.coral{background:var(--peach);border-color:rgba(254,122,120,.4)}
+    .tag.sage{background:var(--sage);border-color:rgba(0,0,0,.1)}
+    .tag.lavender{background:var(--lavender);border-color:rgba(0,0,0,.1)}
+
+    .about-body p{font-size:1.15rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.75rem}
+    .about-body p strong{color:var(--text);font-weight:700}
+    .about-body p em{font-style:italic;color:var(--text-mid)}
+    .about-body a{color:var(--text);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(0,0,0,.3)}
+    .about-body a:hover{text-decoration-color:var(--text)}
+
+    .section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin:3rem 0 1.25rem;display:block}
+
+    .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+    .pill{padding:.3rem .85rem;border-radius:50px;font-size:.82rem;font-weight:500;background:var(--cream);color:var(--text);border:1px solid var(--border)}
+
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-light)}
+
+    .pub-card{border:1.5px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.75rem;background:var(--cream)}
+    .pub-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+    .pub-venue{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light)}
+    .pub-link{font-size:.82rem;font-weight:700;color:var(--coral);text-decoration:none;border:1.5px solid var(--coral);padding:.2rem .75rem;border-radius:50px;transition:var(--transition)}
+    .pub-link:hover{background:var(--coral);color:#fff}
+    .pub-title{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.35rem;line-height:1.4}
+    .pub-authors{font-size:.88rem;color:var(--text-light)}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Bhagyashree Wagh</a>
+    <a href="index.html" class="back-link">← Back home</a>
+  </div>
+</nav>
+
+<div class="about-page">
+  <div class="wrap">
+
+    <h1 class="about-heading">About me</h1>
+
+    <div class="tags">
+      <span class="tag coral">🎓 UW iSchool</span>
+      <span class="tag sage">🏆 Richard Tapia Scholar</span>
+      <span class="tag lavender">🤖 ML Geek</span>
+    </div>
+
+    <div class="about-hero">
+      <div class="about-hero-text about-body">
+        <p>Hi, I'm Bhagyashree, a Data Engineer and recent graduate of the <strong>University of Washington (UW)</strong>, where I completed my Master's in Information Management with a specialization in Data Science. I graduated in June 2026 and am actively exploring full-time opportunities in data engineering and ML infrastructure. I'd love to connect if you are building something interesting in that space.</p>
+      </div>
+      <div class="about-photo">
+        <img src="assets/tapia-photo.jpg" alt="Bhagyashree Wagh at Tapia Conference 2025" />
+      </div>
+    </div>
+
+    <div class="about-body">
+
+      <span class="section-label">Where it started — University of Mumbai</span>
+
+      <p>Before any of this, I completed my <strong>Bachelor of Engineering in Electronics and Telecommunications</strong> at the <strong>University of Mumbai</strong>, graduating with a GPA of 3.96. I also completed a minor's degree in Data Analytics alongside my engineering degree, covering topics like Data Warehousing, Applied Statistics, Descriptive and Predictive Analytics, Big Data Analytics, and Business Analytics for Industries. That combination of engineering foundations and data thinking shaped a lot of how I approach problems today. During undergrad, I also led editorial work for clubs I genuinely cared about: one focused on teaching Java and coding to undergraduates, and another centered on community impact initiatives like blood donation drives, tree plantation, and beach cleaning.</p>
+
+      <p>My first industry experience came through an internship at <strong>Reliance Infrastructure</strong>, where I worked on backend systems for the real estate operations team. Through query optimization and caching, I brought down API response times by 25%, which meant the backend was returning data to the real estate ops team noticeably faster. I also got to present my findings to senior leadership, which was a formative experience early in my career.</p>
+
+      <span class="section-label">Building at scale — ZS Associates</span>
+
+      <p>After graduating, I spent over two years as a <strong>Data Engineer at ZS Associates</strong>, working on large-scale healthcare and oncology analytics for pharma clients including AstraZeneca. My work involved building and owning ETL pipelines on AWS to ingest multi-terabyte healthcare datasets, automating manual workflows using Airflow with schema-drift monitoring and SLA-based failure alerts, and optimizing Redshift schemas for more than ten high-volume fact tables, which brought average query latency down from 15 seconds to 6 seconds. I also built XGBoost-based demand forecasting models that improved forecast accuracy by 12% over baseline statistical methods, and delivered Tableau dashboards for pharma stakeholders covering brand performance, market opportunity, drug persistence, and compliance metrics. Watching data directly shape the decisions behind oncology drug launches made me want to go deeper, and that is what pushed me toward graduate school.</p>
+
+      <span class="section-label">Graduate school at UW</span>
+
+      <p>At the University of Washington, I invested in a curriculum that stretched across both the theory and practice of data science. Highlights include <strong>Advanced Machine Learning through the Paul G. Allen School of Computer Science</strong>, along with Data Science, Building and Applying LLMs, Cloud Computing and AI, Cybersecurity Foundations, Business Intelligence, Relational Database Management Systems, and Social Media Data Mining. Across two years, the coursework consistently pushed me to think about data problems from multiple dimensions, not just the engineering side.</p>
+
+      <p>Alongside coursework, I served as a <strong>Data Engineering Research Assistant at the UW eScience Institute</strong>, contributing to open-source projects led by research scientists. On the infrastructure side, I architected AWS infrastructure for deploying a containerized Django application supporting ML workloads, and automated 95% of deployment workflows using Pulumi and GitHub Actions CI/CD. I also built an end-to-end Azure data pipeline to ingest AI usage logs from LLMaven, an open-source LLM gateway built on LiteLLM, processing over 13,000 research sessions and visualizing model usage patterns, cost trends, and session behavior for the NAIRR initiative. Additionally, I deployed a FastAPI onboarding service to Hugging Face Spaces as part of the NAIRR RSE Plugins Sandbox Demo, a US national initiative providing researchers with AI computing resources.</p>
+
+      <p>I also served as a <strong>Graduate Teaching Assistant at UW's Global Innovation Exchange (GIX)</strong> for courses in Planning and Managing Hardware and Software Development, Hardware and Software Lab, and Programming for Digital and Physical User Interfaces.</p>
+
+      <span class="section-label">Applied Materials</span>
+
+      <p>Over the summer of 2025, I interned at <strong>Applied Materials</strong> in the San Francisco Bay Area. I built a recommendation system for their semiconductor spare parts catalog. A big challenge was the cold start problem: many parts had little to no purchase history, so the system had nothing to learn from and would return no recommendations at all. Solving that brought catalog coverage up by 28% and cut zero-recommendation parts by 18%. The whole thing shipped to their customer-facing website by the end of the summer.</p>
+
+      <span class="section-label">Cloudforce</span>
+
+      <p>One of the highlights of this past year started at a hackathon organized by <strong>Cloudforce</strong>. I built a website powered by AI agents and presented it directly to the CEO, which led to a conversation about joining the team. I received an offer as an <strong>AI Engineer Intern</strong> and would be based at their national hub in <strong>Washington, D.C.</strong>, and it is what I am currently looking forward to.</p>
+
+      <span class="section-label">Research and publications</span>
+
+      <p>I co-authored a <a href="https://arxiv.org/abs/2605.00253" target="_blank">paper published on arXiv</a> that asked a simple but interesting question: can Mamba, a newer kind of AI language model, produce meaningful sentence representations without any fine-tuning? Unlike transformers, which look back at every word they have seen, Mamba compresses everything into a single evolving state as it reads. The question was whether that state alone is enough to capture what a sentence means. The answer was no, and the paper identifies exactly why it falls short. I also worked on a project studying how well RAG systems actually retrieve the right answers when given a question, and during undergrad, I published work on using sensors to automate irrigation for farms.</p>
+
+      <span class="section-label">Leadership and community</span>
+
+      <p>I was selected as a <strong>Richard Tapia Scholar</strong>, one of eight students from the UW Information School chosen to attend the Tapia Celebration of Diversity in Computing 2025 in Dallas, fully sponsored by the UW iSchool IDEAS program. I represented the iSchool as an ambassador at one of the most impactful computing conferences focused on diversity in tech. I also served as a <strong>Senator for the Graduate and Professional Student Senate (GPSS)</strong> at UW, as a <strong>Student Leadership Council Board Member</strong> at the UW iSchool, and as <strong>President of a mental health advocacy club</strong> on campus. These roles reinforced something I believe strongly: that being a good engineer and showing up for your community are not separate things.</p>
+
+      <span class="section-label">Outside of work</span>
+
+      <p>I like to read in my free time, and there is a line I keep coming back to: <em>we don't grow when things are easy; we grow when we're challenged.</em> I carry that with me to every project, every role, and every new room I walk into.</p>
+
+    </div>
+  </div>
+</div>
+
+
+<section class="edu-section">
+  <div class="wrap">
+    <h2 class="edu-heading">Education</h2>
+    <div class="edu-grid">
+
+      <div class="edu-card">
+        <div class="edu-logo uw-bg">
+          <img src="assets/uw-seal.svg" alt="University of Washington seal" class="edu-seal" />
+          <img src="assets/uw-wordmark.png" alt="University of Washington" class="edu-wordmark" />
+        </div>
+        <p class="edu-degree">Master of Information Management</p>
+        <p class="edu-meta">2024 &ndash; 2026</p>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-logo mumbai-bg">
+          <img src="assets/mumbai.png" alt="University of Mumbai seal" class="edu-seal" />
+          <img src="assets/mumbai-wordmark.png" alt="University of Mumbai" class="edu-wordmark" />
+        </div>
+        <p class="edu-degree">Bachelor of Engineering in Electronics &amp; Telecommunications</p>
+        <p class="edu-meta">Data Analytics Minor &middot; 2018 &ndash; 2022</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .edu-section{padding:4rem 0 6rem;background:var(--cream)}
+  .edu-heading{font-size:2rem;font-weight:800;margin-bottom:2rem}
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  @media(max-width:600px){.edu-grid{grid-template-columns:1fr}}
+  .edu-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+  .edu-logo{height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:2.5rem}
+  .uw-bg{background:#fff}
+  .mumbai-bg{background:#f8f8f8}
+  .edu-img{max-height:220px;max-width:100%;object-fit:contain}
+  .edu-seal{max-height:140px;max-width:100%;object-fit:contain}
+  .edu-wordmark{max-height:50px;max-width:80%;object-fit:contain}
+  .edu-degree{font-size:1.2rem;font-weight:700;color:var(--text);padding:1rem 1.75rem .3rem;text-align:center}
+  .edu-meta{font-size:1rem;color:var(--text-light);padding:.3rem 1.75rem 1.5rem;text-align:center}
+</style>
+
+<footer>© 2026 Bhagyashree Wagh</footer>
+
+</body>
+</html>

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhagyashree Wagh, Software Engineer and AI Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Playwrite+US+Modern&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+/* ══════════════════════════════════════════════════════════
+   EXACT DESIGN TOKENS from ruchisbhatia.com
+══════════════════════════════════════════════════════════ */
+:root{
+  --cream:#F6F6F6;--cream-dark:#EEEBE7;
+  --peach:rgb(255,173,173);--coral:rgb(254,122,120);
+  --sage:rgb(179,222,193);--lavender:rgb(202,187,233);
+  --sky:#87CEEB;--gold:#F4C542;
+  --text:rgb(48,46,44);--text-mid:rgba(48,46,44,.75);--text-light:rgb(102,102,102);
+  --white:rgb(255,255,255);--border:rgba(0,0,0,.16);
+  --radius:20px;--radius-lg:28px;--radius-xl:32px;
+  --transition:.3s cubic-bezier(.4,0,.2,1);
+  --font:"Albert Sans","Inter",sans-serif;
+  --font-accent:"Playwrite US Modern",cursive;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--text);text-decoration:none;transition:var(--transition)}
+a:hover{text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:rgba(254,122,120,.2)}
+
+/* ── TYPE SCALE ─────────────────────────────────────────── */
+.heading-xl{font-family:var(--font);font-size:3.25rem;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+@media(min-width:768px){.heading-xl{font-size:4rem}}
+.heading-lg{font-family:var(--font);font-size:2.5rem;font-weight:800;line-height:1.2}
+@media(min-width:768px){.heading-lg{font-size:3rem}}
+.heading-md{font-family:var(--font);font-size:1.6rem;font-weight:700;line-height:1.3}
+.body-lg{font-size:1.2rem;line-height:1.85;color:var(--text-mid)}
+.body-md{font-size:1.1rem;line-height:1.75;color:var(--text-mid)}
+.label{font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light)}
+
+/* ── LAYOUT ─────────────────────────────────────────────── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 2.5rem}
+/* Every section = its own rounded floating card */
+.sec    {padding:5rem 2.5rem;border-radius:30px;margin:.75rem 1rem;background:var(--white)}
+.sec-alt{background:var(--cream);padding:5rem 2.5rem;border-radius:30px;margin:.75rem auto}
+.sec-peach   {background:var(--peach);padding:5rem 2.5rem;border-radius:30px;margin:.75rem 1rem;border:1px solid var(--border)}
+.sec-sage    {background:var(--sage);padding:5rem 2.5rem;border-radius:30px;margin:.75rem 1rem;border:1px solid var(--border)}
+.sec-lavender{background:var(--lavender);padding:5rem 2.5rem;border-radius:30px;margin:.75rem 1rem;border:1px solid var(--border)}
+.sec-dark    {background:var(--text);padding:5rem 2.5rem;border-radius:30px;margin:.75rem 1rem}
+.sec-gradient{background:linear-gradient(135deg,var(--cream) 0%,var(--peach) 50%,var(--lavender) 100%);padding:5rem 2.5rem;border-radius:30px;margin:.75rem 1rem}
+.sec-dark .heading-lg,.sec-dark h2,.sec-dark h3{color:#fff}
+.sec-dark .body-md,.sec-dark p{color:rgba(255,255,255,.7)}
+
+/* ── NAVBAR ─────────────────────────────────────────────── */
+.navbar-b{transition:all .4s ease;background:rgba(255,255,255,.91);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:1rem 0;position:fixed;top:0;left:0;right:0;z-index:100}
+.navbar-b.scrolled{border-bottom:1px solid var(--border);padding:.5rem 0}
+.navbar-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.navbar-brand{color:var(--text);font-family:var(--font);font-size:1.3rem;font-weight:700}
+.nav-links{display:flex;gap:.25rem;list-style:none;align-items:center}
+.nav-links a{color:var(--text);font-weight:500;font-size:.85rem;padding:.4rem .7rem;border-radius:8px;transition:var(--transition)}
+.nav-links a:hover{color:var(--coral)}
+@media(max-width:767px){.nav-links{display:none}}
+
+/* ── BUTTONS EXACT NEO-BRUTALIST ──────────────────────── */
+.btn-fill{
+  padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;
+  background:var(--peach);color:var(--text);display:inline-block;
+  border:2px solid var(--text);box-shadow:4px 4px 0 var(--text);
+  transition:var(--transition);font-family:var(--font)
+}
+.btn-fill:hover{box-shadow:2px 2px 0 var(--text);transform:translate(2px,2px);color:var(--text)}
+.btn-link{
+  padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;
+  color:var(--text);display:inline-block;border:2px solid var(--text);
+  background:var(--white);font-family:var(--font);transition:var(--transition)
+}
+.btn-link:hover{background:var(--cream);color:var(--text)}
+.btn-shadow{
+  padding:.8rem 1.75rem;border-radius:50px;font-weight:600;font-size:.9rem;
+  background:var(--peach);color:var(--text);display:inline-block;
+  border:2px solid var(--text);box-shadow:3px 3px 0 var(--text);
+  transition:all .15s ease;font-family:var(--font)
+}
+.btn-shadow:hover{box-shadow:1px 1px 0 var(--text);transform:translate(2px,2px);color:var(--text)}
+.btn-outline{
+  padding:.8rem 1.75rem;border-radius:50px;font-weight:600;font-size:.9rem;
+  background:transparent;color:var(--text);display:inline-block;
+  border:2px solid var(--text);transition:var(--transition);font-family:var(--font)
+}
+.btn-outline:hover{background:var(--cream);color:var(--text)}
+
+/* ── HERO ───────────────────────────────────────────────── */
+.hero{height:100vh;display:flex;align-items:center;background:var(--cream);padding:5rem 1rem 1rem}
+.hero-inner{
+  max-width:1200px;margin:0 auto;padding:0;
+  display:grid;grid-template-columns:1fr;
+  gap:0;align-items:stretch;
+  background:var(--white);border-radius:30px;border:1px solid var(--border);
+  width:100%;overflow:hidden;
+  height:calc(100vh - 6rem);max-height:780px
+}
+@media(min-width:768px){.hero-inner{grid-template-columns:1.1fr 1.1fr}}
+.hero-left{padding:2.5rem;display:flex;flex-direction:column;justify-content:center}
+@media(min-width:768px){.hero-left{padding:3.5rem}}
+.hero-wave{font-family:var(--font-accent);font-size:1.1rem;margin-bottom:1rem;color:var(--text-mid)}
+.hero-headline{font-family:var(--font);font-size:2.6rem;font-weight:800;line-height:1.15;margin-bottom:1rem}
+@media(min-width:768px){.hero-headline{font-size:3.2rem}}
+.hero-headline .script-line{font-family:var(--font-accent);font-weight:400;font-size:.95em;display:block}
+.hero-desc{font-size:1.05rem;color:var(--text-mid);line-height:1.75}
+.hero-roles{margin-top:1rem;font-family:var(--font-accent);font-size:1rem;color:var(--coral);min-height:1.5em}
+.hero-ctas{margin-top:1.75rem;display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center}
+.hero-right{background:var(--cream-dark);padding:2.5rem 1.5rem;position:relative;display:flex;align-items:center;justify-content:center}
+.hero-visual{border-radius:20px;max-width:100%;max-height:calc(100vh - 11rem);width:auto;height:auto;display:block}
+/* Photo placeholder */
+.hero-photo-ph{
+  width:100%;height:100%;min-height:400px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+  background:linear-gradient(160deg,#FFF0EE 0%,#EDE9FF 100%)
+}
+.avatar-circle-big{
+  width:130px;height:130px;border-radius:50%;
+  background:linear-gradient(135deg,var(--peach),var(--lavender));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.8rem;font-weight:800;color:var(--text);
+  border:3px solid var(--text);box-shadow:4px 4px 0 var(--text)
+}
+.photo-hint{font-family:var(--font-accent);font-size:.8rem;color:var(--text-light);text-align:center;max-width:150px;line-height:1.5}
+
+/* ── MARQUEE ─────────────────────────────────────────────── */
+.marquee-section{padding:3rem 0 4rem;overflow:hidden;background:var(--white);margin:.75rem 1rem;border-radius:30px}
+.marquee-label{text-align:center;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin-bottom:2rem}
+.marquee-track-wrapper{
+  overflow:hidden;margin-bottom:1rem;
+  mask-image:linear-gradient(to right,rgba(0,0,0,0) 0%,rgb(0,0,0) 12.5%,rgb(0,0,0) 87.5%,rgba(0,0,0,0) 100%);
+  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,0) 0%,rgb(0,0,0) 12.5%,rgb(0,0,0) 87.5%,rgba(0,0,0,0) 100%)
+}
+.marquee-track{display:flex;gap:0;width:max-content}
+.marquee-track.scroll-left{animation:marqueeLeft 35s linear infinite}
+.marquee-track.scroll-right{animation:marqueeRight 40s linear infinite}
+@keyframes marqueeLeft{0%{transform:translate(0)}to{transform:translate(-33.333%)}}
+@keyframes marqueeRight{0%{transform:translate(-50%)}to{transform:translate(0)}}
+.marquee-item{
+  flex-shrink:0;
+  background:var(--white);border:1.5px solid var(--border);border-radius:18px;
+  display:flex;align-items:center;justify-content:center;padding:1rem 2rem;
+  transition:var(--transition);height:90px;min-width:180px;margin-right:1.5rem
+}
+.marquee-item:hover{border-color:var(--coral);box-shadow:0 4px 16px rgba(254,122,120,.2);transform:scale(1.05)}
+.marquee-item{position:relative}
+.incoming-badge{position:absolute;top:8px;right:10px;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#005a8e;opacity:.85}
+.marquee-item img{width:140px;height:50px;object-fit:contain}
+.logo-badge{font-size:.8rem;font-weight:800;letter-spacing:.03em;padding:.3rem .6rem;border-radius:6px;color:#fff}
+
+/* ── STATS BAR ───────────────────────────────────────────── */
+.stats-bar{padding:3rem 1rem;background:var(--white)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(min-width:768px){.stats-grid{grid-template-columns:repeat(4,1fr)}}
+.stat-card{
+  text-align:center;padding:1.75rem 1rem;border-radius:20px;
+  border:1.5px solid var(--border);border-top:5px solid var(--peach);
+  transition:var(--transition);background:var(--white);box-shadow:0 4px 16px rgba(0,0,0,.06)
+}
+.stat-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.1)}
+.stat-number{display:block;font-size:2rem;font-weight:900;color:var(--text);line-height:1.3;margin-bottom:.4rem}
+.stat-label{font-size:.85rem;color:var(--text-light);font-weight:500}
+
+/* ── ABOUT HOME ──────────────────────────────────────────── */
+.about-home{display:block;max-width:100%}
+.about-bio{max-width:100%}
+.about-home-photos{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.about-photo-box{aspect-ratio:1;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.about-bio p{font-size:1.15rem;line-height:1.85;color:var(--text-mid);margin-bottom:1.25rem}
+.about-bio p strong{color:var(--text);font-weight:700}
+.personality-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.p-tag{padding:.4rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;border:2px solid var(--text)}
+.p-tag:nth-child(1){background:var(--peach)}
+.p-tag:nth-child(2){background:var(--sage)}
+.p-tag:nth-child(3){background:var(--lavender)}
+.p-tag:nth-child(4){background:var(--sky)}
+.p-tag:nth-child(5){background:var(--gold)}
+.p-tag:nth-child(6){background:var(--cream-dark)}
+
+/* ── APPROACH / HOW I WORK ───────────────────────────────── */
+.approach-layout{display:grid;grid-template-columns:1fr;gap:2.5rem}
+@media(min-width:768px){.approach-layout{grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:start}}
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.approach-card{
+  padding:2rem 1.5rem;border-radius:20px;transition:var(--transition);
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  min-height:160px;position:relative;cursor:pointer
+}
+.approach-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.approach-icon{font-size:2rem;display:block;margin-bottom:1.5rem;text-align:center}
+.approach-card h4{font-family:var(--font);font-size:1.05rem;font-weight:700;margin:0}
+.approach-card p{font-size:.88rem;color:var(--text-mid);line-height:1.6;margin-top:.5rem}
+.approach-card-toggle{
+  position:absolute;top:.9rem;right:.9rem;width:24px;height:24px;
+  border-radius:50%;background:rgba(0,0,0,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;font-weight:700;color:var(--text-mid);transition:var(--transition)
+}
+.approach-card:hover .approach-card-toggle{background:rgba(0,0,0,.15)}
+
+/* ── EXPERIENCE / ROLE CARDS ─────────────────────────────── */
+.tl-tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.tl-tab{
+  padding:.75rem 1.6rem;border-radius:50px;border:1.5px solid var(--border);
+  background:var(--white);color:var(--text-light);font-size:1rem;font-weight:600;
+  font-family:inherit;cursor:pointer;transition:var(--transition);
+  display:inline-flex;align-items:center;gap:6px
+}
+.tl-tab:hover{border-color:var(--coral);color:var(--coral)}
+.tl-tab.active{background:var(--coral);color:#fff;border-color:var(--coral)}
+.tl-tab.active:hover{color:#fff}
+.tl-tab-count{font-size:.8rem;background:rgba(255,255,255,.35);padding:2px 8px;border-radius:10px;margin-left:3px}
+.tl-tab:not(.active) .tl-tab-count{background:var(--cream-dark);color:var(--text-light)}
+.role-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:576px){.role-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.role-grid{grid-template-columns:1fr 1fr 1fr}}
+.role-card{
+  display:flex;flex-direction:column;background:var(--white);
+  border:1.5px solid var(--border);border-radius:var(--radius-lg);
+  overflow:hidden;transition:var(--transition);text-decoration:none;color:inherit
+}
+.role-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.1);border-color:transparent;color:inherit}
+.role-card-accent{height:6px;width:100%}
+.role-card-logo{
+  width:100%;aspect-ratio:2/1;display:flex;align-items:center;
+  justify-content:center;background:#fff;font-size:2.5rem;padding:1.25rem
+}
+.role-card-logo img{max-width:180px;max-height:80px;width:auto;height:auto;object-fit:contain}
+.project-big-img img.proj-logo{max-width:100px;max-height:56px;width:auto;height:auto;object-fit:contain}
+.role-card-info{padding:0 1.5rem 1.5rem;text-align:center}
+.role-card-org{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);display:block;margin-bottom:.35rem}
+.role-card-title{font-size:1.2rem;font-weight:600;margin:0 0 .4rem;line-height:1.35}
+.role-card-date{font-size:.9rem;color:var(--text-light);display:inline-flex;align-items:center;gap:6px}
+.present-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+.role-card-more{font-size:.9rem;font-weight:700;color:var(--coral);margin-top:.5rem;display:block}
+
+/* ── PROJECT STACK ───────────────────────────────────────── */
+.project-stack{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem}
+.project-big{
+  display:grid;grid-template-columns:1fr;border-radius:var(--radius-lg);overflow:hidden;
+  background:var(--white);border:1.5px solid var(--border);
+  transition:var(--transition);text-decoration:none;color:inherit
+}
+@media(min-width:768px){.project-big{grid-template-columns:200px 1fr}}
+.project-big:hover{box-shadow:0 12px 40px rgba(0,0,0,.1);transform:translateY(-3px);color:inherit}
+.project-big-img{background:var(--cream-dark);display:flex;align-items:center;justify-content:center;padding:1.5rem;min-height:140px;font-size:3.5rem}
+.project-big-body{padding:1.75rem 2rem;display:flex;flex-direction:column;justify-content:center}
+.proj-badge{display:inline-block;padding:4px 12px;border-radius:50px;font-size:.7rem;font-weight:700;background:var(--coral);color:#fff;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem;width:fit-content}
+.project-big-body h4{font-family:var(--font);font-size:1.15rem;font-weight:700;margin-bottom:.4rem}
+.project-big-body p{font-size:.88rem;color:var(--text-light);margin:0 0 .75rem;line-height:1.6}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
+.ptag{font-size:.7rem;font-weight:600;padding:.2rem .65rem;border-radius:50px;border:1.5px solid var(--border);background:var(--cream);color:var(--text-light)}
+.proj-links{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.proj-link-live{display:inline-flex;align-items:center;gap:.3rem;font-size:.8rem;font-weight:700;color:var(--coral);border:1.5px solid var(--coral);padding:.3rem .9rem;border-radius:50px;transition:var(--transition)}
+.proj-link-live:hover{background:var(--coral);color:#fff}
+.proj-link-gh{display:inline-flex;align-items:center;gap:.3rem;font-size:.8rem;font-weight:600;color:var(--text-light);border:1.5px solid var(--border);padding:.3rem .9rem;border-radius:50px;transition:var(--transition)}
+.proj-link-gh:hover{border-color:var(--text);color:var(--text)}
+
+/* ── QUOTE ───────────────────────────────────────────────── */
+.quote-sec{background:var(--text);padding:5rem 2.5rem;text-align:center;border-radius:30px;margin:.75rem 1rem}
+.big-quote{font-family:var(--font-accent);font-size:1.5rem;line-height:1.6;color:rgba(255,255,255,.85);font-style:normal;max-width:700px;margin:0 auto 1.25rem}
+@media(min-width:768px){.big-quote{font-size:1.75rem}}
+.quote-author{color:rgba(255,255,255,.4);font-size:.9rem}
+
+/* ── CONTACT DARK ────────────────────────────────────────── */
+.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;gap:0 2rem;align-items:stretch}
+.testimonial-card-top{background:var(--white);border-radius:24px 24px 0 0;padding:2.5rem 2.5rem 1.5rem;border:1px solid var(--border);border-bottom:none}
+.testimonial-card-bottom{background:var(--white);border-radius:0 0 24px 24px;padding:1.25rem 2.5rem 2rem;border:1px solid var(--border);border-top:1px solid var(--border);display:flex;align-items:center;gap:1rem}
+.testimonial-quote-mark{font-family:Georgia,serif;font-size:5rem;line-height:1;color:var(--coral);opacity:.25;pointer-events:none;margin-bottom:.5rem}
+.testimonial-text{font-size:1.05rem;line-height:1.85;color:var(--text-mid)}
+.testimonial-avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;letter-spacing:.03em}
+.testimonial-avatar-cg{background:linear-gradient(135deg,#667eea,#764ba2)}
+.testimonial-avatar-dm{background:linear-gradient(135deg,#f093fb,#f5576c)}
+.testimonial-name{font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:.2rem}
+.testimonial-title{font-size:.8rem;color:var(--text-light);line-height:1.4;margin-bottom:.3rem}
+.testimonial-rel{font-size:.78rem;color:var(--coral);font-weight:600}
+@media(max-width:768px){.testimonial-grid{grid-template-columns:1fr}}
+.contact-sec{background:var(--white);padding:5rem 2.5rem;border-radius:30px;margin:.75rem 1rem}
+.contact-inner{display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+.contact-left{flex:1;min-width:260px}
+.contact-sec .heading-lg{color:var(--text);margin-bottom:1rem}
+.contact-desc{color:var(--text-mid);font-size:1.15rem;max-width:520px;margin:0 0 1.5rem;line-height:1.7}
+.contact-email-plain{display:block;font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:1.75rem;text-decoration:none}
+.contact-email-plain:hover{color:var(--coral)}
+.contact-social-row{display:flex;gap:.75rem;flex-wrap:wrap}
+.contact-social-btn{width:60px;height:60px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;transition:var(--transition);text-decoration:none}
+.contact-social-btn svg{width:24px;height:24px;fill:currentColor}
+.contact-social-btn.li{border-color:#0077b5;color:#0077b5}
+.contact-social-btn.gh{border-color:#1a1a1a;color:#1a1a1a}
+.contact-social-btn:hover{transform:translateY(-3px);opacity:.8}
+.contact-right{flex-shrink:0}
+.contact-me-btn{display:inline-flex;align-items:center;gap:.4rem;padding:1rem 2.25rem;background:var(--coral);color:#fff;border-radius:50px;font-weight:700;font-size:1.05rem;text-decoration:none;transition:var(--transition);box-shadow:4px 4px 0 var(--text)}
+.contact-me-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--text)}
+.social-row{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap}
+.social-btn{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:1.1rem;transition:var(--transition);text-decoration:none}
+.social-btn:hover{background:var(--coral);color:#fff;border-color:var(--coral);transform:translateY(-2px)}
+.social-btn svg{width:18px;height:18px;fill:currentColor}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.site-footer{padding:3rem 0 2rem;background:var(--white)}
+.footer-copy{margin-top:1rem;font-size:.8rem;color:var(--text-light);text-align:center}
+.footer-copy a{color:var(--text-light)}
+.footer-copy a:hover{color:var(--coral)}
+
+/* ── BACK TO TOP ─────────────────────────────────────────── */
+.back-to-top{position:fixed;background:var(--coral);color:#fff;width:42px;height:42px;border-radius:50%;right:20px;bottom:20px;transition:var(--transition);z-index:11;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 16px rgba(254,107,107,.4);font-size:1rem}
+.back-to-top:hover{transform:translateY(-3px);color:#fff}
+
+/* ── FADE ANIMATIONS ─────────────────────────────────────── */
+.fade{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.fade.in{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE ──────────────────────────────────────────────── */
+@media(max-width:500px){
+  .sec,.sec-alt,.sec-peach,.sec-sage,.sec-lavender,.sec-dark,.sec-gradient,.quote-sec,.contact-sec,.marquee-section{margin:.4rem .4rem;padding:3rem 1.25rem}
+  .approach-grid{grid-template-columns:1fr}
+}
+  /* ── Certifications ── */
+  .cert-section{padding:4rem 1rem;background:var(--cream)}
+  .cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}
+  @media(min-width:768px){.cert-grid{grid-template-columns:repeat(4,1fr)}}
+  .cert-flip-card{height:240px;perspective:1000px;cursor:pointer}
+  .cert-flip-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s ease}
+  .cert-flip-card.flipped .cert-flip-inner{transform:rotateY(180deg)}
+  .cert-front,.cert-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;border:1.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.75rem;text-align:center;background:var(--white);font-family:'Albert Sans',sans-serif}
+  .cert-back{transform:rotateY(180deg);background:var(--text);color:#fff;gap:1.5rem}
+  .cert-logo{width:100px;height:40px;object-fit:contain;margin-bottom:1rem}
+  .cert-name{font-size:1rem;font-weight:700;color:var(--text);line-height:1.4}
+  .cert-date{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.85)}
+  .cert-cred-btn{display:inline-block;padding:.65rem 1.5rem;background:var(--coral);color:#fff;border-radius:50px;font-size:.95rem;font-weight:700;text-decoration:none;transition:opacity .2s;font-family:'Albert Sans',sans-serif}
+  .cert-cred-btn:hover{opacity:.85}
+  </style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════════════════════════════════════════ -->
+<nav class="navbar-b" id="navbar">
+  <div class="navbar-inner">
+    <a class="navbar-brand" href="#">Bhagyashree Wagh</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">How I Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <p class="hero-wave">Hi, I'm Bhagyashree 👋</p>
+      <h1 class="hero-headline">
+        I build data systems
+        <span class="script-line">worth trusting.</span>
+      </h1>
+      <p class="hero-desc">
+        Three years architecting data pipelines across industry and research.<br>
+        Developed data pipelines and observability infrastructure across pharmaceutical analytics, semiconductor equipment data, and open-source research tooling.
+      </p>
+      <p class="hero-roles" id="hero-roles">|</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-fill">See my work</a>
+        <a href="#contact" class="btn-link">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img class="hero-visual" src="phone.jpeg" alt="Bhagyashree Wagh" />
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════ WORKED WITH ══════════════════════════════════════ -->
+<div class="marquee-section fade">
+  <p class="marquee-label">worked with</p>
+  <div class="marquee-track-wrapper">
+    <div class="marquee-track scroll-left">
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Applied_Materials_Inc._Logo.svg/250px-Applied_Materials_Inc._Logo.svg.png" alt="Applied Materials"></div>
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ZS_Associates.svg/250px-ZS_Associates.svg.png" alt="ZS Associates"></div>
+      <div class="marquee-item"><img src="https://escience.washington.edu/wp-content/uploads/2022/07/escience-logo.png" alt="UW eScience"></div>
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Reliance_Infrastructure.svg/250px-Reliance_Infrastructure.svg.png" alt="Reliance Infrastructure"></div>
+      <div class="marquee-item"><span class="incoming-badge">Incoming</span><img src="cloudforce-logo.svg" alt="Cloudforce"></div>
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Applied_Materials_Inc._Logo.svg/250px-Applied_Materials_Inc._Logo.svg.png" alt="Applied Materials"></div>
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ZS_Associates.svg/250px-ZS_Associates.svg.png" alt="ZS Associates"></div>
+      <div class="marquee-item"><img src="https://escience.washington.edu/wp-content/uploads/2022/07/escience-logo.png" alt="UW eScience"></div>
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Reliance_Infrastructure.svg/250px-Reliance_Infrastructure.svg.png" alt="Reliance Infrastructure"></div>
+      <div class="marquee-item"><span class="incoming-badge">Incoming</span><img src="cloudforce-logo.svg" alt="Cloudforce"></div>
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Applied_Materials_Inc._Logo.svg/250px-Applied_Materials_Inc._Logo.svg.png" alt="Applied Materials"></div>
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ZS_Associates.svg/250px-ZS_Associates.svg.png" alt="ZS Associates"></div>
+      <div class="marquee-item"><img src="https://escience.washington.edu/wp-content/uploads/2022/07/escience-logo.png" alt="UW eScience"></div>
+      <div class="marquee-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Reliance_Infrastructure.svg/250px-Reliance_Infrastructure.svg.png" alt="Reliance Infrastructure"></div>
+      <div class="marquee-item"><span class="incoming-badge">Incoming</span><img src="cloudforce-logo.svg" alt="Cloudforce"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ STATS ════════════════════════════════════════════ -->
+
+<!-- ════════ ABOUT ════════════════════════════════════════════ -->
+<div class="sec-alt wrap fade" id="about">
+    <div class="about-home">
+
+      <div class="about-bio">
+        <h2 class="heading-lg" style="margin-bottom:1rem">About me</h2>
+        <div class="personality-tags" style="margin-bottom:1.5rem;margin-top:0">
+          <span class="p-tag">🎓 UW iSchool</span>
+          <span class="p-tag">🏆 Richard Tapia Scholar</span>
+          <span class="p-tag">🤖 ML Geek</span>
+        </div>
+        <p>Hey there! I'm Bhagyashree, a recent grad from the <strong>University of Washington (UW)</strong>, where I studied Information Management with a focus on Data Science. I graduated in June 2026 and am actively exploring full-time opportunities.</p>
+        <p>My story with data really started at <strong>ZS Associates</strong>, where I spent two years building ETL pipelines, automating data workflows on AWS, and leading analytics around patient persistence, compliance, brand performance, and market opportunities for pharma clients. Watching data and machine learning directly shape drug launch decisions made me realize how much I wanted to go deeper into this space, and that's what pushed me to pursue grad school.</p>
+        <p>At UW, that curiosity kept growing. I was a Data Engineering Research Assistant at the <strong>UW eScience Institute</strong>, contributing to open-source projects led by research scientists, deploying and optimizing their ML pipelines on the cloud.</p>
+        <p>This was further supplemented by learning opportunities like an internship over the summer of '25 at <strong>Applied Materials</strong>, where I built an unsupervised ML recommendation engine for semiconductor spare parts and took it end to end, from the model all the way to a deployed full-stack web app. That project really cemented my love for building data systems end to end.</p>
+        <p>In my free time, I like to read, and there's this line I always come back to: <em>we don't grow when things are easy; we grow when we're challenged.</em> I carry that with me to every place I go.</p>
+        <a href="about.html" class="btn-link" style="margin-top:1.5rem">Continue reading →</a>
+      </div>
+
+    </div>
+</div>
+
+<!-- ════════ CERTIFICATIONS ══════════════════════════════════ -->
+<div class="cert-section wrap fade">
+  <h2 class="heading-lg" style="text-align:center">Certifications</h2>
+  <p style="text-align:center;color:var(--text-mid);font-size:1.05rem;margin-top:.75rem">I keep learning. From Stanford's ML course to AWS Cloud certifications, I stay sharp across the stack.</p>
+  <div class="cert-grid">
+
+    <div class="cert-flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="cert-flip-inner">
+        <div class="cert-front">
+          <img class="cert-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/250px-Amazon_Web_Services_Logo.svg.png" alt="AWS">
+          <div class="cert-name">AWS Certified Solutions Architect – Associate</div>
+        </div>
+        <div class="cert-back">
+          <div class="cert-date">Issued May 2024</div>
+          <a class="cert-cred-btn" href="https://www.credly.com/badges/4131e4fb-d9d2-4a99-88d5-15cb47aeead2/linked_in_profile" target="_blank">View Credential</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="cert-flip-inner">
+        <div class="cert-front">
+          <img class="cert-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/250px-Amazon_Web_Services_Logo.svg.png" alt="AWS">
+          <div class="cert-name">AWS Certified Cloud Practitioner</div>
+        </div>
+        <div class="cert-back">
+          <div class="cert-date">Issued Aug 2022</div>
+          <a class="cert-cred-btn" href="https://www.credly.com/badges/0e8be9d7-4e11-4d13-94b0-cfb17cd100f0/linked_in_profile" target="_blank">View Credential</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="cert-flip-inner">
+        <div class="cert-front">
+          <img class="cert-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/250px-IBM_logo.svg.png" alt="IBM">
+          <div class="cert-name">Data Science Graduate</div>
+        </div>
+        <div class="cert-back">
+          <div class="cert-date">Issued Jun 2022</div>
+          <a class="cert-cred-btn" href="https://www.credly.com/badges/795ba672-e13c-44c7-bb31-544c48b068db/linked_in_profile" target="_blank">View Credential</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="cert-flip-inner">
+        <div class="cert-front">
+          <img class="cert-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tableau_Logo.png/250px-Tableau_Logo.png" alt="Tableau">
+          <div class="cert-name">Tableau Desktop 1 Fundamentals</div>
+        </div>
+        <div class="cert-back">
+          <div class="cert-date">Issued Oct 2020</div>
+          <a class="cert-cred-btn" href="https://verify.skilljar.com/c/9nwjvtydr32g" target="_blank">View Credential</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="cert-flip-inner">
+        <div class="cert-front">
+          <img class="cert-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Stanford_Cardinal_logo.svg/250px-Stanford_Cardinal_logo.svg.png" alt="Stanford" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Stanford_University_seal_2003.svg/250px-Stanford_University_seal_2003.svg.png'">
+          <div class="cert-name">Machine Learning Specialization</div>
+        </div>
+        <div class="cert-back">
+          <div class="cert-date">Issued Dec 2024</div>
+          <a class="cert-cred-btn" href="https://www.coursera.org/account/accomplishments/specialization/5ZTPIWSQ77UA?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=s12n" target="_blank">View Credential</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- ════════ HOW I WORK ═══════════════════════════════════════ -->
+<div class="sec fade" id="skills">
+  <div class="wrap">
+    <div class="approach-layout">
+      <div>
+        <h2 class="heading-lg" style="margin-bottom:1rem">How I work</h2>
+        <p class="body-md">From debugging pipelines to shipping recommendation systems to publishing research, these are the things I keep coming back to.</p>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-card" style="background:var(--peach)">
+          <span class="approach-card-toggle">+</span>
+          <span class="approach-icon">🔍</span>
+          <h4>Question the constraint before you work within it.</h4>
+          <p class="approach-desc">Half the requirements I've been handed weren't actually requirements.</p>
+        </div>
+        <div class="approach-card" style="background:var(--sage)">
+          <span class="approach-card-toggle">+</span>
+          <span class="approach-icon">🪜</span>
+          <h4>Most problems are upstream of where they show up.</h4>
+          <p class="approach-desc">The bug in your model is usually a data problem. The data problem is usually a process problem.</p>
+        </div>
+        <div class="approach-card" style="background:var(--lavender)">
+          <span class="approach-card-toggle">+</span>
+          <span class="approach-icon">⚙️</span>
+          <h4>The best system is the simplest one that works.</h4>
+          <p class="approach-desc">Complexity gets added in layers and removed in crises. I try to keep it out from the start.</p>
+        </div>
+        <div class="approach-card" style="background:var(--sky)">
+          <span class="approach-card-toggle">+</span>
+          <span class="approach-icon">🔭</span>
+          <h4>Understand the whole system, not just your piece.</h4>
+          <p class="approach-desc">Knowing only your slice is a great way to optimize the wrong thing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ EXPERIENCE ══════════════════════════════════════ -->
+<div class="sec-alt fade" id="experience">
+  <div class="wrap" style="text-align:center">
+    <h2 class="heading-lg" style="margin-bottom:.5rem">Experience</h2>
+    <p class="body-md" style="margin-bottom:2rem">From healthcare data pipelines at ZS Associates to AI observability at UW. The roles that shaped me.</p>
+
+    <div class="tl-tabs" style="justify-content:center">
+      <button class="tl-tab active" onclick="filterRoles('all',this)">All <span class="tl-tab-count">4</span></button>
+      <button class="tl-tab" onclick="filterRoles('research',this)">Research <span class="tl-tab-count">1</span></button>
+      <button class="tl-tab" onclick="filterRoles('industry',this)">Industry <span class="tl-tab-count">3</span></button>
+    </div>
+
+    <div class="role-grid" id="role-grid" style="text-align:left">
+
+      <div class="role-card" data-cat="research">
+        <div class="role-card-accent" style="background:var(--lavender)"></div>
+        <div class="role-card-logo"><img src="assets/escience-logo.png" alt="eScience Institute"></div>
+        <div class="role-card-info">
+          <span class="role-card-org">eScience Institute, UW</span>
+          <div class="role-card-title">Data Engineer</div>
+          <div class="role-card-date">Sep 2025 – Jun 2026</div>
+          <span class="role-card-more">LLMaven · Kafka · Pulumi · AWS · RAG</span>
+        </div>
+      </div>
+
+      <div class="role-card" data-cat="industry">
+        <div class="role-card-accent" style="background:var(--sky)"></div>
+        <div class="role-card-logo"><img src="assets/appliedmaterials-logo.svg" alt="Applied Materials"></div>
+        <div class="role-card-info">
+          <span class="role-card-org">Applied Materials</span>
+          <div class="role-card-title">Data Science Intern</div>
+          <div class="role-card-date">Jun 2025 – Sep 2025</div>
+          <span class="role-card-more">Recommendation Engine · React · FastAPI · Jenkins CI/CD</span>
+        </div>
+      </div>
+
+      <div class="role-card" data-cat="industry">
+        <div class="role-card-accent" style="background:var(--peach)"></div>
+        <div class="role-card-logo"><img src="assets/zs-logo.png" alt="ZS Associates"></div>
+        <div class="role-card-info">
+          <span class="role-card-org">ZS Associates</span>
+          <div class="role-card-title">Data Engineer</div>
+          <div class="role-card-date">Jun 2022 – Aug 2024</div>
+          <span class="role-card-more">ETL · Spark · Redshift · Airflow · Tableau</span>
+        </div>
+      </div>
+
+      <div class="role-card" data-cat="industry">
+        <div class="role-card-accent" style="background:var(--sage)"></div>
+        <div class="role-card-logo"><img src="assets/reliance-logo.svg" alt="Reliance Infrastructure"></div>
+        <div class="role-card-info">
+          <span class="role-card-org">Reliance Infrastructure</span>
+          <div class="role-card-title">Data Engineering Intern</div>
+          <div class="role-card-date">Dec 2019 – Feb 2020</div>
+          <span class="role-card-more">Spring Boot · MySQL · SQL optimization</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PROJECTS ═════════════════════════════════════════ -->
+<div class="sec fade" id="projects">
+  <div class="wrap">
+    <p class="label" style="margin-bottom:.75rem">Projects</p>
+    <h2 class="heading-lg" style="margin-bottom:.5rem">Things I've built</h2>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <a href="https://llmaven-prod-streamlit.azurewebsites.net" target="_blank" class="proj-img-wrap">
+          <img src="assets/llmoxie-screenshot.png" alt="LLMoxie dashboard" class="proj-img-screenshot" />
+        </a>
+        <div class="proj-card-body">
+          <h4 class="proj-card-title">LLMoxie</h4>
+          <p class="proj-card-desc">AI usage observability pipeline built at the UW eScience Institute. Tracks cost, token usage, and session behavior across 13,000+ research sessions using LiteLLM, Kafka, and Azure.</p>
+          <div class="proj-card-tags">
+            <span class="ptag">Kafka</span><span class="ptag">Azure</span><span class="ptag">Pulumi</span><span class="ptag">Streamlit</span><span class="ptag">RAG</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://llmaven-prod-streamlit.azurewebsites.net" target="_blank" class="proj-link-live">↗ Live</a>
+            <a href="https://github.com/bhagyashreewagh/llmaven-azure-demo" target="_blank" class="proj-link-gh">GitHub</a>
+            <a href="projects/llmoxie.html" class="proj-link-dive">Deep dive →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <a href="https://kyron-medical-qhex.onrender.com/" target="_blank" class="proj-img-wrap">
+          <img src="assets/kyron-screenshot.png" alt="Kyron Medical" class="proj-img-screenshot" />
+        </a>
+        <div class="proj-card-body">
+          <h4 class="proj-card-title">Kyron Medical</h4>
+          <p class="proj-card-desc">AI patient assistant that books appointments, sends confirmations over email and SMS, and hands off to a live voice call. Built with Claude, Vapi, React, and Node.js.</p>
+          <div class="proj-card-tags">
+            <span class="ptag">Claude AI</span><span class="ptag">React</span><span class="ptag">Vapi</span><span class="ptag">Twilio</span><span class="ptag">Render</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://kyron-medical-qhex.onrender.com/" target="_blank" class="proj-link-live">↗ Live</a>
+            <a href="https://github.com/bhagyashreewagh/kyron-medical" target="_blank" class="proj-link-gh">GitHub</a>
+            <a href="projects/kyron.html" class="proj-link-dive">Deep dive →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <a href="https://catch-up-club.onrender.com" target="_blank" class="proj-img-wrap">
+          <img src="assets/catchup-screenshot.png" alt="Catch Up Club" class="proj-img-screenshot" />
+        </a>
+        <div class="proj-card-body">
+          <h4 class="proj-card-title">Catch Up Club</h4>
+          <p class="proj-card-desc">Turns YouTube lectures into study materials using AI agents — flashcards, concept maps, summaries, and a Feynman quiz. Built at the Cloudforce hackathon, presented to the CEO.</p>
+          <div class="proj-card-tags">
+            <span class="ptag">Claude AI</span><span class="ptag">React</span><span class="ptag">Node.js</span><span class="ptag">Multi-agent</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://catch-up-club.onrender.com" target="_blank" class="proj-link-live">↗ Live</a>
+            <a href="https://github.com/bhagyashreewagh/catch-up-club" target="_blank" class="proj-link-gh">GitHub</a>
+            <a href="projects/catchup.html" class="proj-link-dive">Deep dive →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <a href="https://multimodal-ai-healthcare.onrender.com/" target="_blank" class="proj-img-wrap">
+          <img src="assets/multimodal-screenshot.png" alt="Multimodal AI Healthcare" class="proj-img-screenshot" />
+        </a>
+        <div class="proj-card-body">
+          <h4 class="proj-card-title">Multimodal AI Healthcare</h4>
+          <p class="proj-card-desc">Analyzes medical reports through six specialist AI agents in parallel — cardiology, neurology, pulmonology, and more — to generate a multidisciplinary diagnosis from a single PDF.</p>
+          <div class="proj-card-tags">
+            <span class="ptag">LangChain</span><span class="ptag">OpenAI</span><span class="ptag">Streamlit</span><span class="ptag">PyMuPDF</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://multimodal-ai-healthcare.onrender.com/" target="_blank" class="proj-link-live">↗ Live</a>
+            <a href="https://github.com/bhagyashreewagh/Multimodal-AI-Healthcare" target="_blank" class="proj-link-gh">GitHub</a>
+            <a href="projects/multimodal.html" class="proj-link-dive">Deep dive →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <a href="https://multimodal-ai-agent-news.onrender.com/" target="_blank" class="proj-img-wrap">
+          <img src="assets/news-screenshot.png" alt="AI News Agent" class="proj-img-screenshot" />
+        </a>
+        <div class="proj-card-body">
+          <h4 class="proj-card-title">AI News Agent</h4>
+          <p class="proj-card-desc">Intelligent news aggregator that collects articles, summarizes them with T5/GPT, and classifies sentiment using BERT and VADER. Filters content based on user preferences.</p>
+          <div class="proj-card-tags">
+            <span class="ptag">Python</span><span class="ptag">Claude Haiku</span><span class="ptag">VADER</span><span class="ptag">Streamlit</span><span class="ptag">Render</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://multimodal-ai-agent-news.onrender.com/" target="_blank" class="proj-link-live">↗ Live</a>
+            <a href="https://github.com/bhagyashreewagh/Multimodal-AI-Agent-News" target="_blank" class="proj-link-gh">GitHub</a>
+            <a href="projects/news-agent.html" class="proj-link-dive">Deep dive →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;margin-top:2rem}
+  @media(max-width:640px){.proj-grid{grid-template-columns:1fr}}
+  .proj-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;transition:var(--transition)}
+  .proj-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1);border-color:transparent}
+  .proj-img-wrap{display:flex;align-items:center;justify-content:center;height:200px;text-decoration:none;transition:var(--transition);overflow:hidden}
+  .proj-img-wrap:hover{opacity:.9}
+  .proj-img-icon{font-size:4rem}
+  .proj-img-screenshot{width:100%;height:100%;object-fit:cover;object-position:top}
+  .proj-card-body{padding:1.5rem}
+  .proj-card-title{font-size:1.2rem;font-weight:700;margin-bottom:.5rem;color:var(--text)}
+  .proj-card-desc{font-size:.95rem;color:var(--text-mid);line-height:1.7;margin-bottom:1rem}
+  .proj-card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+  .proj-card-links{display:flex;gap:.6rem;flex-wrap:wrap}
+  .proj-link-dive{display:inline-flex;align-items:center;gap:.3rem;font-size:.8rem;font-weight:700;color:var(--text);border:1.5px solid var(--border);padding:.3rem .9rem;border-radius:50px;transition:var(--transition);text-decoration:none}
+  .proj-link-dive:hover{background:var(--text);color:#fff;border-color:var(--text)}
+</style>
+
+<!-- ════════ PUBLICATIONS ═════════════════════════════════════ -->
+<div class="sec-alt fade" id="publications">
+  <div class="wrap">
+    <p class="label" style="margin-bottom:.75rem">Publications</p>
+    <h2 class="heading-lg" style="margin-bottom:1.75rem">Research</h2>
+    <div class="pub-entry">
+      <div class="pub-entry-left">
+        <span class="pub-badge">arXiv</span>
+        <span class="pub-year">2026</span>
+      </div>
+      <div class="pub-entry-right">
+        <p class="pub-entry-title">Lost in State Space: Probing Frozen Mamba Representations</p>
+        <p class="pub-entry-authors">Bhagyashree Wagh, Akash Singh</p>
+        <p class="pub-entry-desc">Can Mamba produce meaningful sentence embeddings without fine-tuning? We probe its frozen representations across semantic similarity and classification tasks and identify exactly where state-space compression breaks down.</p>
+        <a href="https://arxiv.org/abs/2605.00253" target="_blank" class="pub-entry-link">↗ Read on arXiv</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .pub-entry{display:flex;gap:2rem;padding:1.75rem;background:var(--white);border:1.5px solid var(--border);border-radius:16px;align-items:flex-start}
+  @media(max-width:600px){.pub-entry{flex-direction:column;gap:1rem}}
+  .pub-entry-left{display:flex;flex-direction:column;align-items:center;gap:.5rem;min-width:64px;padding-top:.25rem}
+  .pub-badge{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--lavender);color:var(--text);padding:.3rem .7rem;border-radius:50px;white-space:nowrap}
+  .pub-year{font-size:.85rem;font-weight:600;color:var(--text-light)}
+  .pub-entry-right{flex:1}
+  .pub-entry-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;line-height:1.4}
+  .pub-entry-authors{font-size:.88rem;color:var(--text-light);margin-bottom:.75rem}
+  .pub-entry-desc{font-size:.95rem;color:var(--text-mid);line-height:1.7;margin-bottom:1rem}
+  .pub-entry-link{font-size:.85rem;font-weight:700;color:var(--coral);border:1.5px solid var(--coral);padding:.3rem .9rem;border-radius:50px;text-decoration:none;transition:var(--transition);display:inline-block}
+  .pub-entry-link:hover{background:var(--coral);color:#fff}
+</style>
+
+<!-- ════════ QUOTE ════════════════════════════════════════════ -->
+
+<!-- ════════ CONTACT ══════════════════════════════════════════ -->
+<div class="sec-alt fade" id="testimonials">
+  <div class="wrap">
+    <p class="label" style="margin-bottom:.75rem">Recommendations</p>
+    <h2 class="heading-lg" style="margin-bottom:3rem">What people say</h2>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card-top">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">What impressed me most about Shree was her ability to work independently while knowing exactly when to reach out for guidance. She quickly ramped up on our existing codebase and consistently delivered on all her commitments. She tackles technical challenges head-on and resolves issues independently. That's a skill that's rarer than it should be. Any organization would be fortunate to have Shree as a software engineer.</p>
+      </div>
+
+      <div class="testimonial-card-top">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">Shree is highly skilled, smart, proactive, and diligent in all she undertakes. She was able to provide insights from her work as a reader/grader to help guide course content and ensure students are getting the best from the learning experience. The quality of her work was recognized by other instructors which helped her continue with course assistant work across multiple classes. There is no question that Shree will have an amazing career.</p>
+      </div>
+
+      <div class="testimonial-card-bottom">
+        <div class="testimonial-avatar testimonial-avatar-cg">CG</div>
+        <div class="testimonial-info">
+          <p class="testimonial-name">Carlos Garcia Jurado Suarez</p>
+          <p class="testimonial-title">Accelerating Scientific Discovery through Software &amp; ML/AI | UW, Ex-Meta, Ex-MSFT</p>
+          <p class="testimonial-rel">Mentor at UW eScience Institute &middot; February 2026</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card-bottom">
+        <div class="testimonial-avatar testimonial-avatar-dm">DM</div>
+        <div class="testimonial-info">
+          <p class="testimonial-name">Dennis Meinhardt</p>
+          <p class="testimonial-title">Product, Technology, and Business Leader | Volunteer | Advisor</p>
+          <p class="testimonial-rel">Course Instructor at UW &middot; December 2024</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="contact-sec fade" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <h2 class="heading-lg">Let's get in touch.</h2>
+        <p class="contact-desc">Open to full-time Data Engineer roles, collaborations, and conversations about data infrastructure, pipelines, and AI systems.</p>
+        <a href="mailto:bwagh3@gmail.com" class="contact-email-plain">bwagh3@gmail.com</a>
+        <div class="contact-social-row">
+          <a href="https://www.linkedin.com/in/bwaghuw" target="_blank" class="contact-social-btn li" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://github.com/bhagyashreewagh" target="_blank" class="contact-social-btn gh" title="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.31 3.435 9.817 8.205 11.408.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 6.807c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 22.31 24 17.806 24 12.5 24 5.87 18.627.5 12 .5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <a href="mailto:bwagh3@gmail.com" class="contact-me-btn">Contact me ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ FOOTER ════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-copy">© 2026 Bhagyashree Wagh</div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top" title="Back to top">↑</a>
+
+<script>
+/* ── Scrolled nav ───────────────────────────────────────── */
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+/* ── Fade-in on scroll ──────────────────────────────────── */
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)} }), {threshold:.08});
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+/* ── Typewriter hero-roles ──────────────────────────────── */
+const roles = ['Data Engineer','University of Washington Alum','Electronics and Telecommunications Engineer'];
+let ri=0, ci=0, del=false;
+const rolesEl = document.getElementById('hero-roles');
+function type(){
+  const cur = roles[ri];
+  if(!del){
+    rolesEl.textContent = cur.slice(0,++ci) + '|';
+    if(ci===cur.length){ del=true; setTimeout(type,1800); return; }
+  } else {
+    rolesEl.textContent = cur.slice(0,--ci) + '|';
+    if(ci===0){ del=false; ri=(ri+1)%roles.length; }
+  }
+  setTimeout(type, del?45:75);
+}
+type();
+
+/* ── Experience filter tabs ─────────────────────────────── */
+function filterRoles(cat, btn){
+  document.querySelectorAll('.tl-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.role-card').forEach(c=>{
+    c.style.display = (cat==='all'||c.dataset.cat===cat) ? '' : 'none';
+  });
+}
+
+/* ── Approach card toggle ───────────────────────────────── */
+document.querySelectorAll('.approach-card').forEach(card=>{
+  const toggle = card.querySelector('.approach-card-toggle');
+  let open = false;
+  card.addEventListener('click',()=>{
+    open=!open;
+    toggle.textContent = open?'−':'+';
+    let desc = card.querySelector('.approach-desc');
+    if(open && !desc){
+      desc = document.createElement('p');
+      desc.className='approach-desc';
+      const texts = {
+        'Make data trustworthy first.':"Bad data quietly breaks decisions. I validate at the source, document assumptions, and test pipelines before anyone downstream gets burned.",
+        'Infrastructure is code, always.':"Every resource I provision lives in Terraform. No click-ops, no tribal knowledge, no infra that only one person understands.",
+        'Instrument everything.':"A pipeline you cannot observe is a pipeline you cannot trust. Logging, cost tracking, and alerting are part of the build, not an afterthought.",
+        'Ship to production, not notebooks.':"A model in a Jupyter notebook is not a data product. I build for deployment: containers, CI/CD, scheduled jobs, real SLAs."
+      };
+      desc.textContent = texts[card.querySelector('h4').textContent] || '';
+      card.appendChild(desc);
+    }
+    if(desc) desc.style.display = open?'block':'none';
+  });
+});
+</script>
+</body>
+</html>

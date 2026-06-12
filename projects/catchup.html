@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catch Up Club | Bhagyashree Wagh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --font:'Albert Sans',sans-serif;
+      --cream:#F6F6F6;--white:rgb(255,255,255);--coral:rgb(254,122,120);
+      --sage:rgb(179,222,193);--lavender:rgb(202,187,233);
+      --text:rgb(48,46,44);--text-mid:rgb(80,78,76);--text-light:rgb(140,138,136);
+      --border:rgba(0,0,0,.12);--transition:all .2s ease;
+    }
+    body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+    a{color:var(--text);text-decoration:none;transition:var(--transition)}
+    .wrap{max-width:860px;margin:0 auto;padding:0 2.5rem}
+    nav{padding:1.25rem 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--white);z-index:100}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-name{font-weight:800;font-size:1rem}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;color:var(--text-mid);font-weight:500}
+    .back-link:hover{color:var(--text)}
+    .proj-page{padding:4rem 0 6rem}
+    .proj-heading{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:.75rem}
+    @media(min-width:768px){.proj-heading{font-size:3.75rem}}
+    .proj-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+    .ptag{display:inline-block;padding:.3rem .85rem;border-radius:50px;font-size:.82rem;font-weight:600;background:var(--cream);color:var(--text);border:1px solid var(--border)}
+    .proj-links{display:flex;gap:.75rem;margin-bottom:3rem}
+    .proj-link-live{font-size:.88rem;font-weight:700;color:var(--coral);border:1.5px solid var(--coral);padding:.35rem 1rem;border-radius:50px;text-decoration:none;transition:var(--transition)}
+    .proj-link-live:hover{background:var(--coral);color:#fff}
+    .proj-link-gh{font-size:.88rem;font-weight:600;color:var(--text-light);border:1.5px solid var(--border);padding:.35rem 1rem;border-radius:50px;text-decoration:none;transition:var(--transition)}
+    .proj-link-gh:hover{border-color:var(--text);color:var(--text)}
+    .proj-body p{font-size:1.15rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.75rem}
+    .proj-body p strong{color:var(--text);font-weight:700}
+    .section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin:3rem 0 1.25rem;display:block}
+    .callout{background:var(--cream);border-left:3px solid var(--coral);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.75rem}
+    .callout p{font-size:1.05rem;margin-bottom:0}
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-light)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-name">Bhagyashree Wagh</a>
+    <a href="../index.html#projects" class="back-link">← Back to projects</a>
+  </div>
+</nav>
+
+<div class="proj-page">
+  <div class="wrap">
+    <h1 class="proj-heading">Catch Up Club</h1>
+    <div class="proj-meta">
+      <span class="ptag">Claude AI</span><span class="ptag">React</span><span class="ptag">Node.js</span><span class="ptag">Multi-agent</span><span class="ptag">TypeScript</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://catch-up-club.onrender.com" target="_blank" class="proj-link-live">↗ Live</a>
+      <a href="https://github.com/bhagyashreewagh/catch-up-club" target="_blank" class="proj-link-gh">GitHub</a>
+    </div>
+
+    <div class="proj-body">
+
+      <span class="section-label">The origin</span>
+
+      <p>Catch Up Club started at a hackathon organized by <strong>Cloudforce</strong>. The problem I wanted to solve was one I'd felt myself: you miss a lecture, or you sit through one and walk out without retaining much. YouTube has everything, but watching is passive.</p>
+
+      <p>So I mapped out exactly what that looks like. A structured outline students can navigate. Summaries at different depths because some students have five minutes and some have an hour. Flashcards tied to exact moments in the video so they can verify every single thing. Semantic search so they can ask a question in their own words and land at the right moment in the lecture. A quiz that tests actual understanding, not just recall. And bilingual support, because language barriers are one of the biggest equity gaps in higher education and I didn't want to build something that only worked for native English speakers.</p>
+
+      <span class="section-label">Faculty mode</span>
+
+      <p>Faculty mode is a completely separate capability. Instead of generating study materials, it evaluates the teaching quality of the lecture. A dedicated Audit Agent looks at the video across four dimensions: <strong>pedagogy</strong>, <strong>accessibility</strong>, <strong>equity</strong>, and <strong>clarity</strong>. The output is a structured report with specific observations, not a score. Something a professor can actually do something with.</p>
+
+      <span class="section-label">Provost mode</span>
+
+      <p>I cut Provost mode deliberately and I want to be transparent about that. The brief was very clear that if you attempt all three capabilities, judging involves up to ten videos from a lecture series the judges choose. I looked at that and thought: I don't know what series they'll pick, what the caption quality will be, or what edge cases will show up across ten videos. Building Provost in the time I had left would have meant shipping something I wasn't confident in. The brief also said explicitly that doing one capability superbly beats doing three sloppily. I believed that. So I made the call to cut it and put that time into making Student and Faculty mode as solid as I could.</p>
+
+      <span class="section-label">Architecture</span>
+
+      <p>Once I had that picture clearly in my head, I thought about architecture. The natural instinct is to throw everything into one big prompt and call it done. I didn't want to do that. I wanted agents that each have a single, well-defined job, where each one can be reasoned about independently.</p>
+
+      <p>So I split it into four agents. The <strong>Transcript Agent</strong> handles fetching, cleaning, timestamping, and validating content before anything else runs. The <strong>Knowledge Agent</strong> takes the full transcript and builds a semantic concept graph, mapping every major idea and how they connect to each other. That graph is what powers the semantic search later. The <strong>Study Agent</strong> takes the transcript and the graph and generates the actual study materials. The <strong>Audit Agent</strong> evaluates teaching quality across the four dimensions for faculty.</p>
+
+      <p>I made Knowledge and Study run in parallel because there is no dependency between them. The Knowledge Agent doesn't need the Study Agent to finish and the Study Agent doesn't need the Knowledge Agent to finish. Running them at the same time cuts the total wait for the user roughly in half. That felt like an obvious decision once I mapped the dependencies out.</p>
+
+      <span class="section-label">Classification before the agents run</span>
+
+      <p>The content classification guard was a product decision more than a technical one. Early on I had a simple check for musical symbols in the transcript. That caught music videos. But I kept thinking about what would actually get pasted into this app in the real world. Vlogs. Podcasts. Study-with-me videos. Content that has real human speech and no symbols but is absolutely not a lecture. If my app processed those and returned confident-looking study materials, a student could study from complete garbage the night before an exam. That felt like the worst possible outcome.</p>
+
+      <p>Part of what pushed me toward this was studying <strong>Pepper</strong>, Chipotle's customer-facing chatbot. People discovered that Pepper would answer anything. Ask it how to reverse a linked list, it would just answer. A chatbot that exists to handle Chipotle orders had no guardrail stopping it from going completely off scope. That's the failure I wanted to avoid.</p>
+
+      <p>So I added a <strong>Claude Haiku</strong> call at the very start of the pipeline, before the heavy agents run, to classify whether the video is actually a lecture. It adds a small amount of latency upfront but it protects the integrity of everything that comes after it. That tradeoff was worth it.</p>
+
+      <span class="section-label">The hardest technical problem</span>
+
+      <p>YouTube blocks cloud server IPs from fetching captions. The <code>youtube-transcript</code> library works perfectly on a local machine. On Render's servers, YouTube just blocks it. I spent a significant chunk of the build week on this. I tried multiple approaches including direct InnerTube API calls with different client signatures before landing on <strong>Supadata</strong> as the primary source with the library as a local fallback. Getting that right was critical because without it the entire app is dead on arrival in production.</p>
+
+      <span class="section-label">Failure handling</span>
+
+      <p>I thought through every type of bad input someone could throw at it. YouTube Music radio links. Private videos. Videos that are technically public but have embedding disabled. Videos that are too short to be useful. Live streams. Each one has a specific detection and a specific, honest error message. I wanted every failure to be recoverable and clear, not a blank screen or a generic crash.</p>
+
+      <p>The one thing that didn't go the way I wanted: an age-restricted video was tested and the error message said captions may be disabled or the video may be private. That's technically inaccurate. The real reason is YouTube's age gate. I didn't catch that edge case during the build. The fix is letting the user sign in to their YouTube account through the app so the caption fetch is authenticated and YouTube lifts the age restriction. That's the missing piece.</p>
+
+      <span class="section-label">Deployment</span>
+
+      <p>The app is deployed on <strong>Render</strong> and live at <a href="https://catch-up-club.onrender.com" target="_blank">catch-up-club.onrender.com</a>.</p>
+
+      <span class="section-label">From hackathon to CEO</span>
+
+      <p>I built and presented Catch Up Club directly to the CEO of Cloudforce at the hackathon. That conversation led to an offer to join the team as an AI Engineer Intern, based at their national hub in Washington, D.C., and it is what I am currently looking forward to.</p>
+
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Bhagyashree Wagh</footer>
+</body>
+</html>

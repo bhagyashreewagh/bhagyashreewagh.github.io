@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multimodal AI Healthcare | Bhagyashree Wagh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --font:'Albert Sans',sans-serif;
+      --cream:#F6F6F6;--white:rgb(255,255,255);--coral:rgb(254,122,120);
+      --sage:rgb(179,222,193);--lavender:rgb(202,187,233);
+      --text:rgb(48,46,44);--text-mid:rgb(80,78,76);--text-light:rgb(140,138,136);
+      --border:rgba(0,0,0,.12);--transition:all .2s ease;
+    }
+    body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+    a{color:var(--text);text-decoration:none;transition:var(--transition)}
+    .wrap{max-width:860px;margin:0 auto;padding:0 2.5rem}
+    nav{padding:1.25rem 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--white);z-index:100}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-name{font-weight:800;font-size:1rem}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;color:var(--text-mid);font-weight:500}
+    .back-link:hover{color:var(--text)}
+    .proj-page{padding:4rem 0 6rem}
+    .proj-heading{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:.75rem}
+    @media(min-width:768px){.proj-heading{font-size:3.75rem}}
+    .proj-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+    .ptag{display:inline-block;padding:.3rem .85rem;border-radius:50px;font-size:.82rem;font-weight:600;background:var(--cream);color:var(--text);border:1px solid var(--border)}
+    .proj-links{display:flex;gap:.75rem;margin-bottom:3rem}
+    .proj-link-gh{font-size:.88rem;font-weight:600;color:var(--text-light);border:1.5px solid var(--border);padding:.35rem 1rem;border-radius:50px;text-decoration:none;transition:var(--transition)}
+    .proj-link-gh:hover{border-color:var(--text);color:var(--text)}
+    .proj-body p{font-size:1.15rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.75rem}
+    .proj-body p strong{color:var(--text);font-weight:700}
+    .section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin:3rem 0 1.25rem;display:block}
+    .callout{background:var(--cream);border-left:3px solid var(--coral);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.75rem}
+    .callout p{font-size:1.05rem;margin-bottom:0}
+    .agent-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.75rem}
+    @media(max-width:600px){.agent-grid{grid-template-columns:1fr}}
+    .agent-card{background:var(--cream);border-radius:12px;padding:1rem 1.25rem;border:1px solid var(--border)}
+    .agent-card strong{display:block;font-size:.9rem;font-weight:700;margin-bottom:.25rem}
+    .agent-card span{font-size:.85rem;color:var(--text-mid)}
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-light)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-name">Bhagyashree Wagh</a>
+    <a href="../index.html#projects" class="back-link">← Back to projects</a>
+  </div>
+</nav>
+
+<div class="proj-page">
+  <div class="wrap">
+    <h1 class="proj-heading">Multimodal AI Healthcare</h1>
+    <div class="proj-meta">
+      <span class="ptag">LangChain</span><span class="ptag">OpenAI</span><span class="ptag">Streamlit</span><span class="ptag">PyMuPDF</span><span class="ptag">Python</span>
+    </div>
+    <div class="proj-links">
+      <a href="https://multimodal-ai-healthcare.onrender.com/" target="_blank" class="proj-link-live">↗ Live</a>
+      <a href="https://github.com/bhagyashreewagh/Multimodal-AI-Healthcare" target="_blank" class="proj-link-gh">GitHub</a>
+    </div>
+
+    <div class="proj-body">
+
+      <span class="section-label">The problem</span>
+
+      <p>Medical reports are written for specialists, not patients. A cardiology report, a neurology note, and a pulmonology finding can all be generated from the same hospital visit, but they're written in different vocabularies, for different audiences, and rarely synthesized into one coherent picture.</p>
+
+      <div class="callout">
+        <p>Upload a single PDF medical report. Six specialist AI agents analyze it in parallel and return a unified multidisciplinary diagnosis, each from their own domain perspective.</p>
+      </div>
+
+      <span class="section-label">The six agents</span>
+
+      <div class="agent-grid">
+        <div class="agent-card"><strong>Cardiology</strong><span>Heart function, blood pressure, cardiovascular risk factors</span></div>
+        <div class="agent-card"><strong>Neurology</strong><span>Nervous system findings, cognitive markers, neurological symptoms</span></div>
+        <div class="agent-card"><strong>Pulmonology</strong><span>Lung capacity, respiratory function, airway findings</span></div>
+        <div class="agent-card"><strong>Psychology</strong><span>Mental health indicators, behavioral patterns, stress markers</span></div>
+        <div class="agent-card"><strong>Endocrinology</strong><span>Hormonal levels, metabolic markers, thyroid and glucose data</span></div>
+        <div class="agent-card"><strong>Immunology</strong><span>Immune response, allergy indicators, inflammatory markers</span></div>
+      </div>
+
+      <span class="section-label">Architecture</span>
+
+      <p>The PDF is extracted using <strong>PyMuPDF</strong>, which handles scanned and digital reports. The raw text is passed to all six agents simultaneously using Python's <strong>ThreadPoolExecutor</strong>, so no agent waits for another. Each agent has a domain-specific system prompt that focuses its analysis on the findings relevant to its specialty.</p>
+
+      <p>Once all six agents complete their analysis, a final <strong>Multidisciplinary Agent</strong> synthesizes the individual outputs into a coherent diagnosis summary, identifying patterns across specialties that a single-domain analysis would miss.</p>
+
+      <span class="section-label">Why parallel agents</span>
+
+      <p>A single generalist model reading the same report tends to prioritize certain findings over others depending on how the report is written. Running six focused agents in parallel forces the system to surface findings that might otherwise be overshadowed. The synthesis step then looks for cross-domain patterns, for example, where a metabolic finding from endocrinology reinforces a cardiovascular risk flag from cardiology, that only become visible when all perspectives are on the table at once.</p>
+
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Bhagyashree Wagh</footer>
+</body>
+</html>
