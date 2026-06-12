@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark')})();</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -16,6 +17,10 @@
       --text:rgb(48,46,44);--text-mid:rgb(80,78,76);--text-light:rgb(140,138,136);
       --border:rgba(0,0,0,.12);--transition:all .2s ease;
     }
+    [data-theme="dark"]{--white:#141414;--cream:#1c1c1c;--cream-dark:#252525;--text:rgb(230,228,226);--text-mid:rgba(230,228,226,.75);--text-light:rgb(160,158,156);--border:rgba(255,255,255,.14)}
+    [data-theme="dark"] nav{background:#141414}
+    .theme-toggle{background:none;border:1.5px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:var(--transition);flex-shrink:0}
+    .theme-toggle:hover{border-color:var(--coral)}
     body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
     a{color:var(--text);text-decoration:none;transition:var(--transition)}
     .wrap{max-width:860px;margin:0 auto;padding:0 2.5rem}
@@ -44,12 +49,16 @@
     .step-text strong{color:var(--text)}
     footer{padding:2.5rem 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--text-light)}
   </style>
+  <link rel="stylesheet" href="../dark-mode.css">
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="../index.html" class="nav-name">Bhagyashree Wagh</a>
-    <a href="../index.html#projects" class="back-link">← Back to projects</a>
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+      <a href="../index.html#projects" class="back-link">← Back to projects</a>
+    </div>
   </div>
 </nav>
 
@@ -108,5 +117,9 @@
 </div>
 
 <footer>© 2026 Bhagyashree Wagh</footer>
+<script>
+function toggleTheme(){const dark=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',dark?'light':'dark');localStorage.setItem('theme',dark?'light':'dark');document.querySelectorAll('.theme-toggle').forEach(b=>b.textContent=dark?'🌙':'☀️');}
+(function(){const dark=document.documentElement.getAttribute('data-theme')==='dark';document.querySelectorAll('.theme-toggle').forEach(b=>b.textContent=dark?'☀️':'🌙');})();
+</script>
 </body>
 </html>
