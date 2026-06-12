@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Playwrite+US+Modern&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark')})();</script>
   <style>
 /* ══════════════════════════════════════════════════════════
    EXACT DESIGN TOKENS from ruchisbhatia.com
@@ -270,16 +271,23 @@ img{max-width:100%;display:block}
 .quote-author{color:rgba(255,255,255,.4);font-size:.9rem}
 
 /* ── CONTACT DARK ────────────────────────────────────────── */
-.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch}
-@media(max-width:768px){.testimonial-grid{grid-template-columns:1fr}}
-.testimonial-card{
-  background:var(--white);border-radius:24px;padding:2.5rem;
-  border:1px solid var(--border);display:flex;flex-direction:column
+/* Desktop: 4-cell grid — both bottom cells land in the same row, guaranteeing identical divider height */
+.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 2rem}
+@media(min-width:769px){
+  .t-top:nth-child(1){grid-column:1;grid-row:1}
+  .t-bottom:nth-child(2){grid-column:1;grid-row:2}
+  .t-top:nth-child(3){grid-column:2;grid-row:1}
+  .t-bottom:nth-child(4){grid-column:2;grid-row:2}
 }
-.testimonial-body{flex:1;min-height:0}
+/* Mobile: single column, auto-flow stacks correctly: top1→bottom1→top2→bottom2 */
+@media(max-width:768px){
+  .testimonial-grid{display:flex;flex-direction:column}
+  .t-bottom:nth-child(2){margin-bottom:1.5rem}
+}
+.t-top{background:var(--white);border-radius:24px 24px 0 0;padding:2.5rem 2.5rem 1.5rem;border:1px solid var(--border);border-bottom:none}
+.t-bottom{background:var(--white);border-radius:0 0 24px 24px;padding:1.5rem 2.5rem 2rem;border:1px solid var(--border);display:flex;align-items:center;gap:1rem}
 .testimonial-quote-mark{font-family:Georgia,serif;font-size:5rem;line-height:1;color:var(--coral);opacity:.25;pointer-events:none;margin-bottom:.5rem}
 .testimonial-text{font-size:1.05rem;line-height:1.85;color:var(--text-mid)}
-.testimonial-author{display:flex;align-items:center;gap:1rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
 .testimonial-avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;letter-spacing:.03em}
 .testimonial-avatar-cg{background:linear-gradient(135deg,#667eea,#764ba2)}
 .testimonial-avatar-dm{background:linear-gradient(135deg,#f093fb,#f5576c)}
@@ -399,6 +407,7 @@ img{max-width:100%;display:block}
   .cert-cred-btn{display:inline-block;padding:.65rem 1.5rem;background:var(--coral);color:#fff;border-radius:50px;font-size:.95rem;font-weight:700;text-decoration:none;transition:opacity .2s;font-family:'Albert Sans',sans-serif}
   .cert-cred-btn:hover{opacity:.85}
   </style>
+  <link rel="stylesheet" href="dark-mode.css">
 </head>
 <body>
 
@@ -415,6 +424,7 @@ img{max-width:100%;display:block}
       <li><a href="#publications">Research</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     <button class="nav-burger" id="nav-burger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -901,33 +911,29 @@ img{max-width:100%;display:block}
     <h2 class="heading-lg" style="margin-bottom:3rem">What people say</h2>
     <div class="testimonial-grid">
 
-      <div class="testimonial-card">
-        <div class="testimonial-body">
-          <div class="testimonial-quote-mark">"</div>
-          <p class="testimonial-text">What impressed me most about Shree was her ability to work independently while knowing exactly when to reach out for guidance. She quickly ramped up on our existing codebase and consistently delivered on all her commitments. She tackles technical challenges head-on and resolves issues independently. That's a skill that's rarer than it should be. Any organization would be fortunate to have Shree as a software engineer.</p>
-        </div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar testimonial-avatar-cg">CG</div>
-          <div class="testimonial-info">
-            <p class="testimonial-name">Carlos Garcia Jurado Suarez</p>
-            <p class="testimonial-title">Accelerating Scientific Discovery through Software &amp; ML/AI | UW, Ex-Meta, Ex-MSFT</p>
-            <p class="testimonial-rel">Mentor at UW eScience Institute &middot; February 2026</p>
-          </div>
+      <div class="t-top">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">What impressed me most about Shree was her ability to work independently while knowing exactly when to reach out for guidance. She quickly ramped up on our existing codebase and consistently delivered on all her commitments. She tackles technical challenges head-on and resolves issues independently. That's a skill that's rarer than it should be. Any organization would be fortunate to have Shree as a software engineer.</p>
+      </div>
+      <div class="t-bottom">
+        <div class="testimonial-avatar testimonial-avatar-cg">CG</div>
+        <div class="testimonial-info">
+          <p class="testimonial-name">Carlos Garcia Jurado Suarez</p>
+          <p class="testimonial-title">Accelerating Scientific Discovery through Software &amp; ML/AI | UW, Ex-Meta, Ex-MSFT</p>
+          <p class="testimonial-rel">Mentor at UW eScience Institute &middot; February 2026</p>
         </div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-body">
-          <div class="testimonial-quote-mark">"</div>
-          <p class="testimonial-text">Shree is highly skilled, smart, proactive, and diligent in all she undertakes. She was able to provide insights from her work as a reader/grader to help guide course content and ensure students are getting the best from the learning experience. The quality of her work was recognized by other instructors which helped her continue with course assistant work across multiple classes. There is no question that Shree will have an amazing career.</p>
-        </div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar testimonial-avatar-dm">DM</div>
-          <div class="testimonial-info">
-            <p class="testimonial-name">Dennis Meinhardt</p>
-            <p class="testimonial-title">Product, Technology, and Business Leader | Volunteer | Advisor</p>
-            <p class="testimonial-rel">Course Instructor at UW &middot; December 2024</p>
-          </div>
+      <div class="t-top">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">Shree is highly skilled, smart, proactive, and diligent in all she undertakes. She was able to provide insights from her work as a reader/grader to help guide course content and ensure students are getting the best from the learning experience. The quality of her work was recognized by other instructors which helped her continue with course assistant work across multiple classes. There is no question that Shree will have an amazing career.</p>
+      </div>
+      <div class="t-bottom">
+        <div class="testimonial-avatar testimonial-avatar-dm">DM</div>
+        <div class="testimonial-info">
+          <p class="testimonial-name">Dennis Meinhardt</p>
+          <p class="testimonial-title">Product, Technology, and Business Leader | Volunteer | Advisor</p>
+          <p class="testimonial-rel">Course Instructor at UW &middot; December 2024</p>
         </div>
       </div>
 
@@ -968,6 +974,18 @@ img{max-width:100%;display:block}
 <a href="#" class="back-to-top" title="Back to top">↑</a>
 
 <script>
+/* ── Dark mode ──────────────────────────────────────────── */
+function toggleTheme(){
+  const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme',dark?'light':'dark');
+  localStorage.setItem('theme',dark?'light':'dark');
+  document.querySelectorAll('.theme-toggle').forEach(b=>b.textContent=dark?'🌙':'☀️');
+}
+(function(){
+  const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  document.querySelectorAll('.theme-toggle').forEach(b=>b.textContent=dark?'☀️':'🌙');
+})();
+
 /* ── Mobile nav ─────────────────────────────────────────── */
 const burger = document.getElementById('nav-burger');
 const mobileMenu = document.getElementById('mobile-menu');
