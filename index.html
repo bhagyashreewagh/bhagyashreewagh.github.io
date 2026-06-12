@@ -872,24 +872,12 @@ function filterRoles(cat, btn){
 /* ── Approach card toggle ───────────────────────────────── */
 document.querySelectorAll('.approach-card').forEach(card=>{
   const toggle = card.querySelector('.approach-card-toggle');
-  let open = false;
+  const desc = card.querySelector('.approach-desc');
+  if(desc) desc.style.display = 'none';
   card.addEventListener('click',()=>{
-    open=!open;
-    toggle.textContent = open?'−':'+';
-    let desc = card.querySelector('.approach-desc');
-    if(open && !desc){
-      desc = document.createElement('p');
-      desc.className='approach-desc';
-      const texts = {
-        'Make data trustworthy first.':"Bad data quietly breaks decisions. I validate at the source, document assumptions, and test pipelines before anyone downstream gets burned.",
-        'Infrastructure is code, always.':"Every resource I provision lives in Terraform. No click-ops, no tribal knowledge, no infra that only one person understands.",
-        'Instrument everything.':"A pipeline you cannot observe is a pipeline you cannot trust. Logging, cost tracking, and alerting are part of the build, not an afterthought.",
-        'Ship to production, not notebooks.':"A model in a Jupyter notebook is not a data product. I build for deployment: containers, CI/CD, scheduled jobs, real SLAs."
-      };
-      desc.textContent = texts[card.querySelector('h4').textContent] || '';
-      card.appendChild(desc);
-    }
-    if(desc) desc.style.display = open?'block':'none';
+    const open = desc && desc.style.display !== 'none';
+    toggle.textContent = open ? '+' : '−';
+    if(desc) desc.style.display = open ? 'none' : 'block';
   });
 });
 </script>
